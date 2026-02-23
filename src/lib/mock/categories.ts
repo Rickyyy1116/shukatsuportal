@@ -1,0 +1,58 @@
+import { Category } from "../data/types";
+
+export const mockCategories: Category[] = [
+  {
+    id: "cat-sougi",
+    name: "葬儀",
+    slug: "sougi",
+    sortOrder: 1,
+    icon: "🕯️",
+    description: "全国の葬儀社を口コミ・料金で比較。家族葬・一般葬・直葬に対応。",
+    providerLabel: "葬儀社",
+  },
+  {
+    id: "cat-ohaka",
+    name: "お墓",
+    slug: "ohaka",
+    sortOrder: 2,
+    icon: "🪦",
+    description: "霊園・墓地・納骨堂を検索。樹木葬・永代供養墓も。",
+    providerLabel: "霊園・墓地",
+  },
+  {
+    id: "cat-kaigo",
+    name: "介護",
+    slug: "kaigo",
+    sortOrder: 3,
+    icon: "🏥",
+    description: "介護施設・老人ホームを条件で検索。入居相談も無料。",
+    providerLabel: "介護施設",
+  },
+  {
+    id: "cat-souzoku",
+    name: "相続",
+    slug: "souzoku",
+    sortOrder: 4,
+    icon: "📋",
+    description: "相続に強い税理士・司法書士・弁護士をマッチング。",
+    providerLabel: "相続専門家",
+  },
+  {
+    id: "cat-ihinseiri",
+    name: "遺品整理",
+    slug: "ihinseiri",
+    sortOrder: 5,
+    icon: "📦",
+    description: "遺品整理・生前整理の専門業者を比較。見積もり無料。",
+    providerLabel: "遺品整理業者",
+  },
+  {
+    id: "cat-hoken",
+    name: "保険",
+    slug: "hoken",
+    sortOrder: 6,
+    icon: "🛡️",
+    description: "終活に関する保険相談。FP・保険代理店を無料紹介。",
+    providerLabel: "保険相談窓口",
+  },
+];
