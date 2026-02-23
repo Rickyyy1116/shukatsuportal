@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shukatsu Portal
 
-## Getting Started
+終活サービス比較ポータル（Next.js, Static Export）です。
 
-First, run the development server:
+## Local Development
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ビルド成果物は `out/` に出力されます。
 
-## Learn More
+## Cloudflare Pages Deployment (GitHub Actions)
 
-To learn more about Next.js, take a look at the following resources:
+このリポジトリには `main` push時に Cloudflare Pages へデプロイするWorkflowを追加済みです。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Workflow:
+- `.github/workflows/deploy-cloudflare-pages.yml`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 1. Cloudflare側でPagesプロジェクトを作成
 
-## Deploy on Vercel
+Cloudflare Dashboardで Pages プロジェクトを作成してください。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Project name 例: `shukatsuportal`
+- Production branch: `main`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+※ Git連携は不要です（この構成ではGitHub Actions経由で直接deployします）。
+
+### 2. GitHub Secretsを設定
+
+GitHubリポジトリ `Settings > Secrets and variables > Actions` に以下を追加します。
+
+- `CLOUDFLARE_API_TOKEN`
+  - Cloudflare API Token（権限: Pages Edit + Account Read 推奨）
+- `CLOUDFLARE_ACCOUNT_ID`
+  - Cloudflare account id
+- `CLOUDFLARE_PAGES_PROJECT`
+  - Cloudflare Pages project name（例: `shukatsuportal`）
+
+### 3. デプロイ実行
+
+- `main` にpushすると自動デプロイ
+- もしくは `Actions > Deploy to Cloudflare Pages > Run workflow`
+
+### 4. 補足
+
+現在、GitHub Pages用Workflowも存在します。
+Cloudflare運用に一本化する場合は次を無効化または削除してください。
+
+- `.github/workflows/deploy-pages.yml`
