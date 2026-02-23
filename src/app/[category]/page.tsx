@@ -12,6 +12,8 @@ interface CategoryPageProps {
   params: Promise<{ category: string }>;
 }
 
+export const dynamicParams = false;
+
 /** カテゴリ一覧ページ（Server Component） */
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { category } = await params;

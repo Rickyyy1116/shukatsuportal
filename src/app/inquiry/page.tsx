@@ -6,14 +6,8 @@ import InquiryForm from "@/components/form/InquiryForm";
 import { getCategories, getPrefectures } from "@/lib/data";
 import { SITE_NAME } from "@/lib/constants";
 
-interface InquiryPageProps {
-  searchParams: Promise<{ provider?: string; category?: string }>;
-}
-
 /** 問い合わせページ（Server Component） */
-export default async function InquiryPage({ searchParams }: InquiryPageProps) {
-  const { provider, category } = await searchParams;
-
+export default async function InquiryPage() {
   // データ取得
   const [categories, prefectures] = await Promise.all([
     getCategories(),
@@ -49,8 +43,6 @@ export default async function InquiryPage({ searchParams }: InquiryPageProps) {
           <InquiryForm
             categories={categories}
             prefectures={prefectures}
-            defaultCategory={category}
-            defaultProvider={provider}
           />
         </div>
       </main>

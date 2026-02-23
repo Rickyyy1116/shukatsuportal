@@ -12,10 +12,13 @@ import {
   getCitiesByPrefecture,
 } from "@/lib/data";
 import { VALID_CATEGORIES, SITE_NAME } from "@/lib/constants";
+import { mockProviders } from "@/lib/mock/providers";
 
 interface PrefecturePageProps {
   params: Promise<{ category: string; prefecture: string }>;
 }
+
+export const dynamicParams = false;
 
 /** 都道府県別一覧ページ（Server Component） */
 export default async function PrefecturePage({ params }: PrefecturePageProps) {
@@ -115,4 +118,22 @@ export async function generateMetadata({ params }: PrefecturePageProps): Promise
     title: `${pref.name}の${cat.providerLabel}おすすめ一覧【2026年最新】 | ${SITE_NAME}`,
     description: `${pref.name}で評判の良い${cat.providerLabel}を口コミ・料金で比較。無料相談・見積もりで最適な${cat.providerLabel}を見つけましょう。`,
   };
+}
+
+/** 静的パラメータ生成 */
+export async function generateStaticParams() {
+  const uniquePairs = new Set(
+    mockProviders
+      .filter((provider) =>
+        VALID_CATEGORIES.includes(
+          provider.categorySlug as (typeof VALID_CATEGORIES)[number]
+        )
+      )
+      .map((provider) => `${provider.categorySlug}:${provider.prefectureSlug}`)
+  );
+
+  return Array.from(uniquePairs).map((pair) => {
+    const [category, prefecture] = pair.split(":");
+    return { category, prefecture };
+  });
 }
