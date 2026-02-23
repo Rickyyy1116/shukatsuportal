@@ -4,7 +4,6 @@ import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import type { Category, Area } from "@/lib/data/types";
 import { REGION_GROUPS } from "@/lib/constants";
-import { mockCities } from "@/lib/mock/areas";
 
 interface ServiceSearchProps {
   categories: Category[];
@@ -45,7 +44,8 @@ export default function ServiceSearch({
       setLoadingCities(true);
 
       try {
-        const data = mockCities.filter((city) => city.parentSlug === prefSlug);
+        const res = await fetch(`/api/cities/${prefSlug}`);
+        const data: Area[] = await res.json();
         setCities(data);
       } catch {
         setCities([]);

@@ -14,13 +14,10 @@ import {
   getReviewSummary,
 } from "@/lib/data";
 import { VALID_CATEGORIES, SITE_NAME, SITE_URL } from "@/lib/constants";
-import { mockProviders } from "@/lib/mock/providers";
 
 interface DetailPageProps {
   params: Promise<{ category: string; slug: string }>;
 }
-
-export const dynamicParams = false;
 
 /** 事業者詳細ページ（Server Component） */
 export default async function DetailPage({ params }: DetailPageProps) {
@@ -151,12 +148,4 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
       type: "website",
     },
   };
-}
-
-/** 静的パラメータ生成 */
-export async function generateStaticParams() {
-  return mockProviders.map((provider) => ({
-    category: provider.categorySlug,
-    slug: provider.slug,
-  }));
 }
