@@ -55,3 +55,7 @@ GitHubリポジトリ `Settings > Secrets and variables > Actions` に以下を�
 Cloudflare運用に一本化する場合は次を無効化または削除してください。
 
 - `.github/workflows/deploy-pages.yml`
+
+## Cloudflare Detailed Setup
+
+- `CLOUDFLARE_SETUP.md`
