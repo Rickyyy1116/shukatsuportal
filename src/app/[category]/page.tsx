@@ -12,7 +12,7 @@ interface CategoryPageProps {
   params: Promise<{ category: string }>;
 }
 
-export const dynamicParams = false;
+export const dynamic = "force-dynamic";
 
 /** カテゴリ一覧ページ（Server Component） */
 export default async function CategoryPage({ params }: CategoryPageProps) {
@@ -118,9 +118,3 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   };
 }
 
-/** 静的パラメータ生成 */
-export async function generateStaticParams() {
-  return VALID_CATEGORIES.map((category) => ({
-    category,
-  }));
-}
