@@ -231,10 +231,10 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
     const prefName = pref?.name ?? "";
 
     return {
-      title: `${venue.name}の口コミ・料金 | ${prefName}の${cat.providerLabel} | ${SITE_NAME}`,
+      title: `${venue.name}の料金・特徴 | ${prefName}の${cat.providerLabel} | ${SITE_NAME}`,
       description: `${venue.name}の口コミ・評判・料金情報。${prefName}の${cat.providerLabel}をお探しなら${SITE_NAME}で無料見積もり。`,
       openGraph: {
-        title: `${venue.name}の口コミ・料金`,
+        title: `${venue.name}の料金・特徴`,
         description: venue.description,
         url: `${SITE_URL}/${category}/detail/${slug}/`,
         type: "website",
@@ -249,10 +249,10 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
   const prefName = pref?.name ?? "";
 
   return {
-    title: `${provider.name}の口コミ・料金 | ${prefName}の${cat.providerLabel} | ${SITE_NAME}`,
-    description: `${provider.name}の口コミ・評判・料金情報。${prefName}の${cat.providerLabel}をお探しなら${SITE_NAME}で無料相談。`,
+    title: `${provider.name}の料金・特徴 | ${prefName}の${cat.providerLabel} | ${SITE_NAME}`,
+    description: `${provider.name}の料金・特徴情報。${prefName}の${cat.providerLabel}をお探しなら${SITE_NAME}で無料見積もり。`,
     openGraph: {
-      title: `${provider.name}の口コミ・料金`,
+      title: `${provider.name}の料金・特徴`,
       description: provider.description,
       url: `${SITE_URL}/${category}/detail/${slug}/`,
       type: "website",

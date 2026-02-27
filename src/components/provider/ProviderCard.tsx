@@ -3,7 +3,6 @@
 import Link from "next/link";
 import type { Provider } from "@/lib/data/types";
 import { PRICE_RANGE_LABELS } from "@/lib/constants";
-import StarRating from "@/components/ui/StarRating";
 import Badge from "@/components/ui/Badge";
 
 /** 料金帯からバッジvariantへの変換 */
@@ -56,14 +55,6 @@ export default function ProviderCard({ provider, categorySlug }: ProviderCardPro
         <h3 className="truncate text-lg font-bold text-gray-900">
           {provider.name}
         </h3>
-
-        {/* 評価・口コミ件数 */}
-        <div className="mt-1 flex items-center gap-2">
-          <StarRating rating={provider.ratingAvg} size="sm" />
-          <span className="text-sm text-gray-600">
-            {provider.ratingAvg.toFixed(1)}（{provider.reviewCount}件）
-          </span>
-        </div>
 
         {/* 住所 */}
         <p className="mt-1 truncate text-sm text-gray-500">

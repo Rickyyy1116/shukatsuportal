@@ -67,7 +67,7 @@ export default async function CityPage({ params }: CityPageProps) {
           {cityData.name}の{cat.providerLabel}
         </h1>
         <p className="mt-2 text-gray-600">
-          {pref.name}{cityData.name}で評判の良い{cat.providerLabel}を口コミ・料金で比較できます。
+          {pref.name}{cityData.name}で評判の良い{cat.providerLabel}を料金・特徴で比較できます。
         </p>
 
         {/* 一覧 */}
@@ -107,6 +107,6 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
 
   return {
     title: `${cityData.name}の${cat.providerLabel}おすすめ一覧【2026年最新】 | ${SITE_NAME}`,
-    description: `${pref.name}${cityData.name}で評判の良い${cat.providerLabel}を口コミ・料金で比較。無料相談・見積もりで最適な${cat.providerLabel}を見つけましょう。`,
+    description: `${pref.name}${cityData.name}で評判の良い${cat.providerLabel}を料金・特徴で比較。無料見積もりで最適な${cat.providerLabel}を見つけましょう。`,
   };
 }

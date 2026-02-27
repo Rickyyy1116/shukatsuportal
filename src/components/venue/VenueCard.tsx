@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import type { Venue } from "@/lib/data/types";
-import StarRating from "@/components/ui/StarRating";
 import Badge from "@/components/ui/Badge";
 
 // 施設種別の日本語ラベル
@@ -50,14 +49,6 @@ export default function VenueCard({ venue }: VenueCardProps) {
         <h3 className="truncate text-lg font-bold text-gray-900">
           {venue.name}
         </h3>
-
-        {/* 評価・口コミ件数 */}
-        <div className="mt-1 flex items-center gap-2">
-          <StarRating rating={venue.ratingAvg} size="sm" />
-          <span className="text-sm text-gray-600">
-            {venue.ratingAvg.toFixed(1)}（{venue.reviewCount}件）
-          </span>
-        </div>
 
         {/* 最寄駅・アクセス */}
         {venue.nearestStation && (

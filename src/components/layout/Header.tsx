@@ -37,13 +37,13 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* 無料相談ボタン（デスクトップ） */}
+          {/* 無料見積もりボタン（デスクトップ） */}
           <div className="hidden md:block">
             <Link
-              href="/inquiry/"
+              href="/estimate/"
               className="inline-flex items-center rounded-full bg-primary-600 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-700"
             >
-              無料相談
+              無料見積もり
             </Link>
           </div>
 
@@ -105,11 +105,11 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/inquiry/"
+              href="/estimate/"
               className="mt-2 block rounded-full bg-primary-600 px-4 py-2 text-center text-base font-medium text-white transition-colors hover:bg-primary-700"
               onClick={() => setIsMenuOpen(false)}
             >
-              無料相談
+              無料見積もり
             </Link>
           </nav>
         </div>

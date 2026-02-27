@@ -1,7 +1,6 @@
 /** 斎場詳細コンポーネント */
 
 import type { Venue } from "@/lib/data/types";
-import StarRating from "@/components/ui/StarRating";
 import Badge from "@/components/ui/Badge";
 import VenuePricePlans from "@/components/venue/VenuePricePlans";
 import VenueFacilities from "@/components/venue/VenueFacilities";
@@ -39,15 +38,9 @@ export default function VenueDetail({ venue }: VenueDetailProps) {
         )}
       </section>
 
-      {/* === 施設名・評価 === */}
+      {/* === 施設名 === */}
       <section>
         <h1 className="text-2xl font-bold text-gray-900">{venue.name}</h1>
-        <div className="mt-2 flex items-center gap-2">
-          <StarRating rating={venue.ratingAvg} size="md" />
-          <span className="text-sm text-gray-600">
-            {venue.ratingAvg.toFixed(1)}（{venue.reviewCount}件の口コミ）
-          </span>
-        </div>
       </section>
 
       {/* === 基本情報テーブル（電話番号なし） === */}

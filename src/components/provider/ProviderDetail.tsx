@@ -2,7 +2,6 @@
 
 import type { Provider } from "@/lib/data/types";
 import { PRICE_RANGE_LABELS } from "@/lib/constants";
-import StarRating from "@/components/ui/StarRating";
 import Badge from "@/components/ui/Badge";
 
 /** 料金帯からバッジvariantへの変換 */
@@ -54,15 +53,9 @@ export default function ProviderDetail({ provider }: ProviderDetailProps) {
         )}
       </section>
 
-      {/* === 事業者名・評価 === */}
+      {/* === 事業者名 === */}
       <section>
         <h1 className="text-2xl font-bold text-gray-900">{provider.name}</h1>
-        <div className="mt-2 flex items-center gap-2">
-          <StarRating rating={provider.ratingAvg} size="md" />
-          <span className="text-sm text-gray-600">
-            {provider.ratingAvg.toFixed(1)}（{provider.reviewCount}件の口コミ）
-          </span>
-        </div>
       </section>
 
       {/* === 基本情報テーブル === */}

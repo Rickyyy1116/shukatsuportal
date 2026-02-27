@@ -66,7 +66,7 @@ export default async function PrefecturePage({ params }: PrefecturePageProps) {
           {pref.name}の{cat.providerLabel}
         </h1>
         <p className="mt-2 text-gray-600">
-          {pref.name}で評判の良い{cat.providerLabel}を口コミ・料金で比較できます。
+          {pref.name}で評判の良い{cat.providerLabel}を料金・特徴で比較できます。
         </p>
 
         {/* 市区町村リンク（あれば） */}
@@ -125,6 +125,6 @@ export async function generateMetadata({ params }: PrefecturePageProps): Promise
 
   return {
     title: `${pref.name}の${cat.providerLabel}おすすめ一覧【2026年最新】 | ${SITE_NAME}`,
-    description: `${pref.name}で評判の良い${cat.providerLabel}を口コミ・料金で比較。無料相談・見積もりで最適な${cat.providerLabel}を見つけましょう。`,
+    description: `${pref.name}で評判の良い${cat.providerLabel}を料金・特徴で比較。無料見積もりで最適な${cat.providerLabel}を見つけましょう。`,
   };
 }
