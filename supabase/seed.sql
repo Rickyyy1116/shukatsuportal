@@ -3681,7 +3681,211 @@ INSERT INTO venues (name, slug, venue_type, description, address, prefecture_slu
 -- SELECT city_slug, count(*) AS venue_count FROM venues WHERE city_slug IN ('shinjuku','meguro','shinagawa','minato','chuo','chiyoda','nakano','itabashi','koto','taito') GROUP BY city_slug ORDER BY venue_count DESC;
 
 -- =============================================
+-- エリアマスターデータ: 関東6県
+-- =============================================
+
+-- 都道府県レベル
+INSERT INTO areas (name, slug, code, parent_slug, level, region) VALUES
+  ('神奈川県', 'kanagawa', '14', NULL, 1, '関東'),
+  ('埼玉県', 'saitama', '11', NULL, 1, '関東'),
+  ('千葉県', 'chiba', '12', NULL, 1, '関東'),
+  ('茨城県', 'ibaraki', '08', NULL, 1, '関東'),
+  ('栃木県', 'tochigi', '09', NULL, 1, '関東'),
+  ('群馬県', 'gunma', '10', NULL, 1, '関東');
+
+-- 神奈川県 市区町村
+INSERT INTO areas (name, slug, code, parent_slug, level, region) VALUES
+  ('横浜市鶴見区', 'yokohama-tsurumi', '14101', 'kanagawa', 2, '関東'),
+  ('横浜市神奈川区', 'yokohama-kanagawa', '14102', 'kanagawa', 2, '関東'),
+  ('横浜市西区', 'yokohama-nishi', '14103', 'kanagawa', 2, '関東'),
+  ('横浜市中区', 'yokohama-naka', '14104', 'kanagawa', 2, '関東'),
+  ('横浜市南区', 'yokohama-minami', '14105', 'kanagawa', 2, '関東'),
+  ('横浜市保土ケ谷区', 'yokohama-hodogaya', '14106', 'kanagawa', 2, '関東'),
+  ('横浜市磯子区', 'yokohama-isogo', '14107', 'kanagawa', 2, '関東'),
+  ('横浜市金沢区', 'yokohama-kanazawa', '14108', 'kanagawa', 2, '関東'),
+  ('横浜市港北区', 'yokohama-kohoku', '14109', 'kanagawa', 2, '関東'),
+  ('横浜市戸塚区', 'yokohama-totsuka', '14110', 'kanagawa', 2, '関東'),
+  ('横浜市港南区', 'yokohama-kounan', '14111', 'kanagawa', 2, '関東'),
+  ('横浜市旭区', 'yokohama-asahi', '14112', 'kanagawa', 2, '関東'),
+  ('横浜市緑区', 'yokohama-midori', '14113', 'kanagawa', 2, '関東'),
+  ('横浜市瀬谷区', 'yokohama-seya', '14114', 'kanagawa', 2, '関東'),
+  ('横浜市栄区', 'yokohama-sakae', '14115', 'kanagawa', 2, '関東'),
+  ('横浜市泉区', 'yokohama-izumi', '14116', 'kanagawa', 2, '関東'),
+  ('横浜市青葉区', 'yokohama-aoba', '14117', 'kanagawa', 2, '関東'),
+  ('横浜市都筑区', 'yokohama-tsuzuki', '14118', 'kanagawa', 2, '関東'),
+  ('川崎市川崎区', 'kawasaki-kawasaki', '14131', 'kanagawa', 2, '関東'),
+  ('川崎市幸区', 'kawasaki-saiwai', '14132', 'kanagawa', 2, '関東'),
+  ('川崎市中原区', 'kawasaki-nakahara', '14133', 'kanagawa', 2, '関東'),
+  ('川崎市高津区', 'kawasaki-takatsu', '14134', 'kanagawa', 2, '関東'),
+  ('川崎市多摩区', 'kawasaki-tama', '14135', 'kanagawa', 2, '関東'),
+  ('川崎市宮前区', 'kawasaki-miyamae', '14136', 'kanagawa', 2, '関東'),
+  ('川崎市麻生区', 'kawasaki-asao', '14137', 'kanagawa', 2, '関東'),
+  ('相模原市緑区', 'sagamihara-midori', '14151', 'kanagawa', 2, '関東'),
+  ('相模原市中央区', 'sagamihara-chuo', '14152', 'kanagawa', 2, '関東'),
+  ('相模原市南区', 'sagamihara-minami', '14153', 'kanagawa', 2, '関東'),
+  ('横須賀市', 'yokosuka', '14201', 'kanagawa', 2, '関東'),
+  ('平塚市', 'hiratsuka', '14203', 'kanagawa', 2, '関東'),
+  ('鎌倉市', 'kamakura', '14204', 'kanagawa', 2, '関東'),
+  ('藤沢市', 'fujisawa', '14205', 'kanagawa', 2, '関東'),
+  ('小田原市', 'odawara', '14206', 'kanagawa', 2, '関東'),
+  ('茅ヶ崎市', 'chigasaki', '14207', 'kanagawa', 2, '関東'),
+  ('逗子市', 'zushi', '14208', 'kanagawa', 2, '関東'),
+  ('三浦市', 'miura', '14210', 'kanagawa', 2, '関東'),
+  ('秦野市', 'hadano', '14211', 'kanagawa', 2, '関東'),
+  ('厚木市', 'atsugi', '14212', 'kanagawa', 2, '関東'),
+  ('大和市', 'yamato', '14213', 'kanagawa', 2, '関東'),
+  ('伊勢原市', 'isehara', '14214', 'kanagawa', 2, '関東'),
+  ('海老名市', 'ebina', '14215', 'kanagawa', 2, '関東'),
+  ('座間市', 'zama', '14216', 'kanagawa', 2, '関東'),
+  ('綾瀬市', 'ayase', '14218', 'kanagawa', 2, '関東'),
+  ('愛川町', 'aikawa', '14401', 'kanagawa', 2, '関東'),
+  ('真鶴町', 'manazuru', '14484', 'kanagawa', 2, '関東');
+
+-- 埼玉県 市区町村
+INSERT INTO areas (name, slug, code, parent_slug, level, region) VALUES
+  ('さいたま市西区', 'saitama-nishi', '11101', 'saitama', 2, '関東'),
+  ('さいたま市北区', 'saitama-kita', '11102', 'saitama', 2, '関東'),
+  ('さいたま市大宮区', 'saitama-omiya', '11103', 'saitama', 2, '関東'),
+  ('さいたま市見沼区', 'saitama-minuma', '11104', 'saitama', 2, '関東'),
+  ('さいたま市中央区', 'saitama-chuo', '11105', 'saitama', 2, '関東'),
+  ('さいたま市桜区', 'saitama-sakura', '11106', 'saitama', 2, '関東'),
+  ('さいたま市浦和区', 'saitama-urawa', '11107', 'saitama', 2, '関東'),
+  ('さいたま市南区', 'saitama-minami', '11108', 'saitama', 2, '関東'),
+  ('さいたま市緑区', 'saitama-midori', '11109', 'saitama', 2, '関東'),
+  ('さいたま市岩槻区', 'saitama-iwatsuki', '11110', 'saitama', 2, '関東'),
+  ('川口市', 'kawaguchi', '11203', 'saitama', 2, '関東'),
+  ('川越市', 'kawagoe', '11201', 'saitama', 2, '関東'),
+  ('所沢市', 'tokorozawa', '11208', 'saitama', 2, '関東'),
+  ('越谷市', 'koshigaya', '11222', 'saitama', 2, '関東'),
+  ('春日部市', 'kasukabe', '11214', 'saitama', 2, '関東'),
+  ('草加市', 'soka', '11221', 'saitama', 2, '関東'),
+  ('戸田市', 'toda', '11224', 'saitama', 2, '関東'),
+  ('蕨市', 'warabi', '11223', 'saitama', 2, '関東'),
+  ('朝霞市', 'asaka', '11227', 'saitama', 2, '関東'),
+  ('新座市', 'niiza', '11230', 'saitama', 2, '関東'),
+  ('三郷市', 'misato', '11237', 'saitama', 2, '関東'),
+  ('狭山市', 'sayama', '11209', 'saitama', 2, '関東'),
+  ('入間市', 'iruma', '11225', 'saitama', 2, '関東'),
+  ('飯能市', 'hanno', '11210', 'saitama', 2, '関東'),
+  ('熊谷市', 'kumagaya', '11202', 'saitama', 2, '関東'),
+  ('行田市', 'gyoda', '11206', 'saitama', 2, '関東'),
+  ('鴻巣市', 'konosu', '11217', 'saitama', 2, '関東'),
+  ('久喜市', 'kuki', '11232', 'saitama', 2, '関東'),
+  ('深谷市', 'fukaya', '11218', 'saitama', 2, '関東'),
+  ('上尾市', 'ageo', '11219', 'saitama', 2, '関東'),
+  ('富士見市', 'fujimi', '11235', 'saitama', 2, '関東'),
+  ('加須市', 'kazo', '11211', 'saitama', 2, '関東'),
+  ('秩父市', 'chichibu', '11207', 'saitama', 2, '関東'),
+  ('八潮市', 'yashio', '11234', 'saitama', 2, '関東'),
+  ('越生町', 'ogose', '11341', 'saitama', 2, '関東');
+
+-- 千葉県 市区町村
+INSERT INTO areas (name, slug, code, parent_slug, level, region) VALUES
+  ('千葉市中央区', 'chiba-chuo', '12101', 'chiba', 2, '関東'),
+  ('千葉市花見川区', 'chiba-hanamigawa', '12102', 'chiba', 2, '関東'),
+  ('千葉市稲毛区', 'chiba-inage', '12103', 'chiba', 2, '関東'),
+  ('千葉市若葉区', 'chiba-wakaba', '12104', 'chiba', 2, '関東'),
+  ('千葉市緑区', 'chiba-midori', '12105', 'chiba', 2, '関東'),
+  ('千葉市美浜区', 'chiba-mihama', '12106', 'chiba', 2, '関東'),
+  ('船橋市', 'funabashi', '12204', 'chiba', 2, '関東'),
+  ('松戸市', 'matsudo', '12207', 'chiba', 2, '関東'),
+  ('柏市', 'kashiwa', '12217', 'chiba', 2, '関東'),
+  ('市川市', 'ichikawa', '12203', 'chiba', 2, '関東'),
+  ('浦安市', 'urayasu', '12227', 'chiba', 2, '関東'),
+  ('野田市', 'noda', '12208', 'chiba', 2, '関東'),
+  ('流山市', 'nagareyama', '12220', 'chiba', 2, '関東'),
+  ('我孫子市', 'abiko', '12222', 'chiba', 2, '関東'),
+  ('鎌ケ谷市', 'kamagaya', '12224', 'chiba', 2, '関東'),
+  ('習志野市', 'narashino', '12216', 'chiba', 2, '関東'),
+  ('八千代市', 'yachiyo', '12221', 'chiba', 2, '関東'),
+  ('印西市', 'inzai', '12231', 'chiba', 2, '関東'),
+  ('成田市', 'narita', '12211', 'chiba', 2, '関東'),
+  ('佐倉市', 'sakura', '12212', 'chiba', 2, '関東'),
+  ('香取市', 'katori', '12236', 'chiba', 2, '関東'),
+  ('銚子市', 'choshi', '12202', 'chiba', 2, '関東'),
+  ('東金市', 'togane', '12213', 'chiba', 2, '関東'),
+  ('匝瑳市', 'sosa', '12235', 'chiba', 2, '関東'),
+  ('茂原市', 'mobara', '12210', 'chiba', 2, '関東'),
+  ('勝浦市', 'katsuura', '12218', 'chiba', 2, '関東'),
+  ('鴨川市', 'kamogawa', '12223', 'chiba', 2, '関東'),
+  ('いすみ市', 'isumi', '12238', 'chiba', 2, '関東'),
+  ('南房総市', 'minamiboso', '12234', 'chiba', 2, '関東'),
+  ('木更津市', 'kisarazu', '12206', 'chiba', 2, '関東'),
+  ('君津市', 'kimitsu', '12225', 'chiba', 2, '関東'),
+  ('市原市', 'ichihara', '12219', 'chiba', 2, '関東'),
+  ('旭市', 'asahi', '12215', 'chiba', 2, '関東'),
+  ('長南町', 'chonan', '12426', 'chiba', 2, '関東'),
+  ('一宮町', 'ichinomiya', '12421', 'chiba', 2, '関東'),
+  ('大多喜町', 'otaki', '12441', 'chiba', 2, '関東'),
+  ('神崎町', 'kozaki', '12329', 'chiba', 2, '関東');
+
+-- 茨城県 市区町村
+INSERT INTO areas (name, slug, code, parent_slug, level, region) VALUES
+  ('水戸市', 'mito', '08201', 'ibaraki', 2, '関東'),
+  ('つくば市', 'tsukuba', '08220', 'ibaraki', 2, '関東'),
+  ('日立市', 'hitachi', '08202', 'ibaraki', 2, '関東'),
+  ('土浦市', 'tsuchiura', '08203', 'ibaraki', 2, '関東'),
+  ('取手市', 'toride', '08217', 'ibaraki', 2, '関東'),
+  ('ひたちなか市', 'hitachinaka', '08221', 'ibaraki', 2, '関東'),
+  ('那珂市', 'naka', '08226', 'ibaraki', 2, '関東'),
+  ('龍ケ崎市', 'ryugasaki', '08208', 'ibaraki', 2, '関東'),
+  ('石岡市', 'ishioka', '08205', 'ibaraki', 2, '関東'),
+  ('常総市', 'joso', '08211', 'ibaraki', 2, '関東'),
+  ('常陸太田市', 'hitachiota', '08212', 'ibaraki', 2, '関東'),
+  ('坂東市', 'bando', '08225', 'ibaraki', 2, '関東'),
+  ('筑西市', 'chikusei', '08227', 'ibaraki', 2, '関東'),
+  ('鹿嶋市', 'kashima', '08222', 'ibaraki', 2, '関東'),
+  ('古河市', 'koga', '08204', 'ibaraki', 2, '関東'),
+  ('結城市', 'yuki', '08207', 'ibaraki', 2, '関東'),
+  ('笠間市', 'kasama', '08216', 'ibaraki', 2, '関東'),
+  ('牛久市', 'ushiku', '08219', 'ibaraki', 2, '関東'),
+  ('神栖市', 'kamisu', '08232', 'ibaraki', 2, '関東'),
+  ('潮来市', 'itako', '08223', 'ibaraki', 2, '関東'),
+  ('下妻市', 'shimotsuma', '08210', 'ibaraki', 2, '関東'),
+  ('守谷市', 'moriya', '08224', 'ibaraki', 2, '関東');
+
+-- 栃木県 市区町村
+INSERT INTO areas (name, slug, code, parent_slug, level, region) VALUES
+  ('宇都宮市', 'utsunomiya', '09201', 'tochigi', 2, '関東'),
+  ('小山市', 'oyama', '09208', 'tochigi', 2, '関東'),
+  ('足利市', 'ashikaga', '09202', 'tochigi', 2, '関東'),
+  ('栃木市', 'tochigi-city', '09203', 'tochigi', 2, '関東'),
+  ('佐野市', 'sano', '09204', 'tochigi', 2, '関東'),
+  ('那須塩原市', 'nasushiobara', '09213', 'tochigi', 2, '関東'),
+  ('大田原市', 'otawara', '09210', 'tochigi', 2, '関東'),
+  ('鹿沼市', 'kanuma', '09205', 'tochigi', 2, '関東'),
+  ('真岡市', 'moka', '09209', 'tochigi', 2, '関東'),
+  ('日光市', 'nikko', '09206', 'tochigi', 2, '関東'),
+  ('下野市', 'shimotsuke', '09216', 'tochigi', 2, '関東'),
+  ('矢板市', 'yaita', '09211', 'tochigi', 2, '関東'),
+  ('さくら市', 'sakura-tochigi', '09214', 'tochigi', 2, '関東'),
+  ('壬生町', 'mibu', '09361', 'tochigi', 2, '関東'),
+  ('高根沢町', 'takanesawa', '09386', 'tochigi', 2, '関東'),
+  ('野木町', 'nogi', '09342', 'tochigi', 2, '関東'),
+  ('塩谷町', 'shioya', '09384', 'tochigi', 2, '関東'),
+  ('上三川町', 'kaminokawa', '09345', 'tochigi', 2, '関東');
+
+-- 群馬県 市区町村
+INSERT INTO areas (name, slug, code, parent_slug, level, region) VALUES
+  ('前橋市', 'maebashi', '10201', 'gunma', 2, '関東'),
+  ('高崎市', 'takasaki', '10202', 'gunma', 2, '関東'),
+  ('太田市', 'ota-gunma', '10205', 'gunma', 2, '関東'),
+  ('伊勢崎市', 'isesaki', '10204', 'gunma', 2, '関東'),
+  ('桐生市', 'kiryu', '10203', 'gunma', 2, '関東'),
+  ('渋川市', 'shibukawa', '10208', 'gunma', 2, '関東'),
+  ('沼田市', 'numata', '10206', 'gunma', 2, '関東'),
+  ('館林市', 'tatebayashi', '10207', 'gunma', 2, '関東'),
+  ('藤岡市', 'fujioka', '10209', 'gunma', 2, '関東'),
+  ('安中市', 'annaka', '10211', 'gunma', 2, '関東'),
+  ('富岡市', 'tomioka', '10210', 'gunma', 2, '関東'),
+  ('みどり市', 'midori-gunma', '10212', 'gunma', 2, '関東'),
+  ('大泉町', 'oizumi', '10464', 'gunma', 2, '関東'),
+  ('玉村町', 'tamamura', '10345', 'gunma', 2, '関東'),
+  ('邑楽町', 'oura', '10465', 'gunma', 2, '関東');
+
+-- =============================================
 -- 斎場データ: 関東6県（神奈川・埼玉・千葉・茨城・栃木・群馬）
+-- 既存データ + 追加データ
 -- =============================================
 
 -- =============================================
@@ -4668,4 +4872,3542 @@ INSERT INTO venues (name, slug, venue_type, description, address, prefecture_slu
   ARRAY['火葬場併設', '公営斎場', '市民料金あり'],
   '桐生市',
   3.7, 7
+);
+
+
+-- =============================================
+-- 神奈川県の追加斎場（35件）
+-- =============================================
+
+INSERT INTO venues (name, slug, venue_type, description, address, prefecture_slug, city_slug, latitude, longitude, nearest_station, station_walk_minutes, capacity_max, hall_count, has_crematorium, parking_count, facilities, price_plans, features, operator_name, rating_avg, review_count) VALUES
+
+-- 1. 横浜市営久保山斎場（横浜市西区）
+(
+  '横浜市営久保山斎場',
+  'yokohama-kuboyama-saijo',
+  'public_crematorium',
+  '横浜市西区に位置する市営の火葬場。明治時代から続く歴史ある斎場で、横浜市民に広く利用されています。緑豊かな丘陵地に立地し、落ち着いた雰囲気の中でお別れの時間を過ごせます。',
+  '神奈川県横浜市西区元久保町3-1',
+  'kanagawa', 'yokohama-nishi',
+  35.4452, 139.6178,
+  '日ノ出町',
+  15,
+  100, 3, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 78000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 298000}]',
+  ARRAY['公営斎場', '火葬場併設', '歴史ある施設', '駐車場完備'],
+  '横浜市',
+  4.0, 85
+),
+
+-- 2. 横浜市戸塚斎場（横浜市戸塚区）
+(
+  '横浜市戸塚斎場',
+  'yokohama-totsuka-saijo',
+  'public_crematorium',
+  '横浜市戸塚区にある市営斎場。近代的な設備を備え、バリアフリー対応も万全です。閑静な住宅街に位置し、ゆったりとした敷地内で故人を偲ぶ時間を大切にできます。',
+  '神奈川県横浜市戸塚区鳥が丘10-5',
+  'kanagawa', 'yokohama-totsuka',
+  35.3920, 139.5350,
+  '戸塚',
+  20,
+  80, 2, true, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "売店": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 68000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 278000}]',
+  ARRAY['公営斎場', '火葬場併設', 'バリアフリー', '広い駐車場'],
+  '横浜市',
+  3.9, 62
+),
+
+-- 3. 西寺尾火葬場（横浜市神奈川区）
+(
+  '西寺尾火葬場',
+  'nishi-terao-kasoba',
+  'public_crematorium',
+  '横浜市神奈川区にある民営の火葬場。JR横浜線大口駅から徒歩圏内でアクセスが良好。こぢんまりとした施設ながら、丁寧な対応で地域に親しまれている火葬専用施設です。',
+  '神奈川県横浜市神奈川区西寺尾1-10-1',
+  'kanagawa', 'yokohama-kanagawa',
+  35.4910, 139.6410,
+  '大口',
+  10,
+  50, 1, true, 15,
+  '{"霊安室": false, "バリアフリー": true, "駐車場": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 58000}]',
+  ARRAY['火葬専用', '駅近', 'コンパクト'],
+  '西寺尾火葬場',
+  3.7, 28
+),
+
+-- 4. 三浦市火葬場（三浦市）
+(
+  '三浦市火葬場',
+  'miura-kasoba',
+  'public_crematorium',
+  '三浦半島の先端に位置する三浦市営の火葬場。海に近い穏やかな環境の中にあり、三浦市民の方は優先的にご利用いただけます。小規模ながら清潔感のある施設です。',
+  '神奈川県三浦市南下浦町菊名370',
+  'kanagawa', 'miura',
+  35.1680, 139.6520,
+  '三浦海岸',
+  20,
+  30, 1, true, 10,
+  '{"霊安室": false, "バリアフリー": true, "駐車場": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 68000}]',
+  ARRAY['公営斎場', '火葬場', '市民優先'],
+  '三浦市',
+  3.6, 12
+),
+
+-- 5. 小坪火葬場（逗子市）
+(
+  '小坪火葬場',
+  'kotsubo-kasoba',
+  'public_crematorium',
+  '逗子市小坪にある公営火葬場。逗子海岸の近くに位置し、静かな環境でお見送りができます。逗子市・葉山町の住民の方が優先的にご利用いただける施設です。',
+  '神奈川県逗子市小坪5-23-1',
+  'kanagawa', 'zushi',
+  35.2960, 139.5620,
+  '逗子',
+  15,
+  40, 1, true, 12,
+  '{"霊安室": false, "バリアフリー": true, "駐車場": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 72000}]',
+  ARRAY['公営斎場', '火葬場', '海近く', '市民優先'],
+  '逗子市',
+  3.7, 18
+),
+
+-- 6. 茅ヶ崎市斎場（茅ヶ崎市）
+(
+  '茅ヶ崎市斎場',
+  'chigasaki-saijo',
+  'public_crematorium',
+  '茅ヶ崎市が運営する公営斎場で、火葬場と式場を併設。湘南エリアの温暖な気候の中、広々とした敷地でお別れの時間を過ごせます。市民料金で利用できる式場も完備しています。',
+  '神奈川県茅ヶ崎市下寺尾2551',
+  'kanagawa', 'chigasaki',
+  35.3540, 139.4180,
+  '茅ヶ崎',
+  25,
+  100, 2, true, 60,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 78000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 298000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 498000}]',
+  ARRAY['公営斎場', '火葬場併設', '式場完備', '駐車場完備'],
+  '茅ヶ崎市',
+  4.1, 55
+),
+
+-- 7. 愛川聖苑（愛甲郡愛川町）
+(
+  '愛川聖苑',
+  'aikawa-seien',
+  'public_crematorium',
+  '愛甲郡愛川町にある公営の火葬場。丹沢山系の麓に位置し、自然豊かな環境で故人をお見送りできます。愛川町・清川村の住民が優先利用できる施設で、待合室も完備しています。',
+  '神奈川県愛甲郡愛川町三増450',
+  'kanagawa', 'aikawa',
+  35.5120, 139.3280,
+  '本厚木',
+  40,
+  50, 1, true, 20,
+  '{"霊安室": false, "バリアフリー": true, "駐車場": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 65000}]',
+  ARRAY['公営斎場', '火葬場', '自然豊か', '市民優先'],
+  '愛川町',
+  3.8, 15
+),
+
+-- 8. 秦野市斎場（秦野市）
+(
+  '秦野市斎場',
+  'hadano-saijo',
+  'public_crematorium',
+  '秦野市が運営する公営斎場。丹沢の山並みを望む閑静な場所に位置し、火葬場と式場を併設しています。市民料金が設定されており、秦野市民の方は比較的安価にご利用いただけます。',
+  '神奈川県秦野市曽屋4028',
+  'kanagawa', 'hadano',
+  35.3880, 139.2250,
+  '秦野',
+  20,
+  80, 2, true, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 68000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 278000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 478000}]',
+  ARRAY['公営斎場', '火葬場併設', '式場完備', '山並みの眺望'],
+  '秦野市',
+  4.0, 38
+),
+
+-- 9. 真鶴聖苑（足柄下郡真鶴町）
+(
+  '真鶴聖苑',
+  'manazuru-seien',
+  'public_crematorium',
+  '足柄下郡真鶴町にある公営の火葬場。相模湾を望む高台に位置し、穏やかな環境で故人を送ることができます。真鶴町・湯河原町の住民が優先的にご利用いただけます。',
+  '神奈川県足柄下郡真鶴町真鶴1789',
+  'kanagawa', 'manazuru',
+  35.1560, 139.1350,
+  '真鶴',
+  15,
+  40, 1, true, 15,
+  '{"霊安室": false, "バリアフリー": true, "駐車場": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 62000}]',
+  ARRAY['公営斎場', '火葬場', '海を望む立地', '町民優先'],
+  '真鶴町',
+  3.6, 8
+),
+
+-- 10. 一休庵久保山式場（横浜市西区）
+(
+  '一休庵久保山式場',
+  'ikkyuan-kuboyama-shikijo',
+  'private_hall',
+  '横浜市営久保山斎場のすぐ隣に位置する民営式場。火葬場に隣接しているため移動の負担が少なく、ご遺族にとって利便性の高い立地です。家族葬から一般葬まで幅広く対応しています。',
+  '神奈川県横浜市西区元久保町3-15',
+  'kanagawa', 'yokohama-nishi',
+  35.4448, 139.6182,
+  '日ノ出町',
+  15,
+  80, 2, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true, "シャワー室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 98000}, {"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 228000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 348000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 548000}]',
+  ARRAY['火葬場隣接', '家族葬対応', '宿泊可能', '少人数対応'],
+  '一休庵',
+  4.2, 72
+),
+
+-- 11. セレモホール横浜（横浜市中区）
+(
+  'セレモホール横浜',
+  'ceremo-hall-yokohama',
+  'private_hall',
+  '横浜市中区に位置する民営葬儀式場。モダンなデザインの建物で、温かみのある空間を演出。少人数の家族葬から大規模な一般葬まで対応可能な複数の式場を備えています。',
+  '神奈川県横浜市中区山下町18-5',
+  'kanagawa', 'yokohama-naka',
+  35.4430, 139.6510,
+  '元町・中華街',
+  8,
+  120, 3, false, 25,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true, "キッズルーム": true}',
+  '[{"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 248000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 378000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 598000}]',
+  ARRAY['駅近', '複数式場', '宿泊可能', 'キッズスペース'],
+  'セレモホール',
+  4.3, 95
+),
+
+-- 12. ラステル新横浜（横浜市港北区）
+(
+  'ラステル新横浜',
+  'lastel-shin-yokohama',
+  'private_hall',
+  '新横浜駅から徒歩圏内のアクセス抜群な民営葬儀式場。都市型の洗練されたデザインで、少人数の家族葬に特化した施設です。24時間対応で、ご遺体の安置から葬儀までワンストップで対応します。',
+  '神奈川県横浜市港北区新横浜1-7-3',
+  'kanagawa', 'yokohama-kohoku',
+  35.5085, 139.6170,
+  '新横浜',
+  7,
+  60, 2, false, 10,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true, "安置室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 128000}, {"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 258000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 398000}]',
+  ARRAY['駅近', '家族葬特化', '24時間対応', '安置施設完備'],
+  'ラステル',
+  4.5, 108
+),
+
+-- 13. 法輪閣（川崎市川崎区）
+(
+  '法輪閣',
+  'hourinkaku-kawasaki',
+  'temple_hall',
+  '川崎市川崎区にある寺院併設の葬儀式場。伝統的な仏式葬儀に対応し、荘厳な雰囲気の中でお別れの儀式を執り行えます。僧侶の手配も含めたトータルサポートが特長です。',
+  '神奈川県川崎市川崎区大師町4-38',
+  'kanagawa', 'kawasaki-kawasaki',
+  35.5360, 139.7280,
+  '川崎大師',
+  5,
+  100, 2, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true, "本堂": true}',
+  '[{"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 328000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 528000}]',
+  ARRAY['寺院式場', '仏式葬儀', '僧侶手配可', '歴史ある施設'],
+  '法輪閣',
+  4.1, 45
+),
+
+-- 14. メモリードホール川崎（川崎市中原区）
+(
+  'メモリードホール川崎',
+  'memolead-hall-kawasaki',
+  'private_hall',
+  '川崎市中原区に位置する大手葬儀社運営の式場。最新設備を備えた快適な空間で、スタッフの丁寧な対応が好評です。家族葬専用の小ホールから一般葬向けの大ホールまで選べます。',
+  '神奈川県川崎市中原区新丸子東2-890',
+  'kanagawa', 'kawasaki-nakahara',
+  35.5760, 139.6620,
+  '新丸子',
+  5,
+  150, 3, false, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true, "シャワー室": true, "キッズルーム": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 118000}, {"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 248000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 398000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 698000}]',
+  ARRAY['大手運営', '複数ホール', '駅近', '充実した設備'],
+  'メモリード',
+  4.4, 112
+),
+
+-- 15. ダビアスリビング横浜（横浜市港北区）
+(
+  'ダビアスリビング横浜',
+  'davius-living-yokohama',
+  'private_hall',
+  '横浜市港北区にある家族葬専門の小規模式場。自宅のようなリビング空間をコンセプトに設計されており、アットホームな雰囲気の中で故人との最後の時間を過ごせます。',
+  '神奈川県横浜市港北区大倉山3-5-11',
+  'kanagawa', 'yokohama-kohoku',
+  35.5180, 139.6310,
+  '大倉山',
+  6,
+  30, 1, false, 8,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "安置室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 108000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 298000}]',
+  ARRAY['家族葬専門', 'リビング式場', '少人数向け', 'アットホーム'],
+  'ダビアス',
+  4.6, 88
+),
+
+-- 16. サンモリエ横浜（横浜市神奈川区）
+(
+  'サンモリエ横浜',
+  'sunmorie-yokohama',
+  'private_hall',
+  '横浜市神奈川区に位置する民営葬儀式場。明るく清潔感のある館内で、ご遺族の気持ちに寄り添ったきめ細やかなサービスを提供。少人数から中規模の葬儀に適した施設です。',
+  '神奈川県横浜市神奈川区六角橋2-15-8',
+  'kanagawa', 'yokohama-kanagawa',
+  35.4870, 139.6340,
+  '白楽',
+  8,
+  70, 2, false, 15,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 218000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 358000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 548000}]',
+  ARRAY['清潔感のある施設', '少人数対応', '丁寧な対応'],
+  'サンモリエ',
+  4.2, 67
+),
+
+-- 17. 横浜市港南台セレモニーホール（横浜市港南区）
+(
+  '横浜市港南台セレモニーホール',
+  'yokohama-konandai-ceremony-hall',
+  'private_hall',
+  '港南台駅から近い好立地の民営式場。落ち着いた住宅街の中に位置し、周辺環境も穏やかです。家族葬に最適な小ホールと、一般葬にも対応できる大ホールの2つを完備しています。',
+  '神奈川県横浜市港南区港南台4-8-12',
+  'kanagawa', 'yokohama-kounan',
+  35.3750, 139.5780,
+  '港南台',
+  7,
+  100, 2, false, 25,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true, "宿泊設備": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 98000}, {"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 228000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 358000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 578000}]',
+  ARRAY['駅近', '2ホール完備', '宿泊可能', '閑静な立地'],
+  'セレモニーホール港南台',
+  4.3, 78
+),
+
+-- 18. 南横浜メモリアルホール（横浜市南区）
+(
+  '南横浜メモリアルホール',
+  'minami-yokohama-memorial-hall',
+  'private_hall',
+  '横浜市南区にある民営の葬儀式場。温かみのあるインテリアで、故人との思い出を大切にした葬儀を実現します。少人数の家族葬を中心に、きめ細やかなプランを提案しています。',
+  '神奈川県横浜市南区井土ヶ谷下町15-3',
+  'kanagawa', 'yokohama-minami',
+  35.4330, 139.6070,
+  '井土ヶ谷',
+  6,
+  60, 2, false, 12,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "安置室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 108000}, {"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 238000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 348000}]',
+  ARRAY['家族葬中心', '駅近', '安置施設あり', '温かみのある空間'],
+  '南横浜メモリアル',
+  4.1, 53
+),
+
+-- 19. 家族葬のダビアス横浜泉（横浜市泉区）
+(
+  '家族葬のダビアス横浜泉',
+  'davius-yokohama-izumi',
+  'private_hall',
+  '横浜市泉区にある家族葬専門の式場。最大20名程度の小規模な葬儀に特化し、自宅のようなくつろぎの空間を提供。追加費用のない明朗会計が特長で、安心してご利用いただけます。',
+  '神奈川県横浜市泉区和泉中央南4-12-15',
+  'kanagawa', 'yokohama-izumi',
+  35.4060, 139.4920,
+  'いずみ中央',
+  5,
+  20, 1, false, 6,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "安置室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 89000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 278000}]',
+  ARRAY['家族葬専門', '少人数特化', '明朗会計', '駅近'],
+  'ダビアス',
+  4.5, 92
+),
+
+-- 20. セレモアガーデン茅ヶ崎（茅ヶ崎市）
+(
+  'セレモアガーデン茅ヶ崎',
+  'ceremoa-garden-chigasaki',
+  'private_hall',
+  '茅ヶ崎市にある緑に囲まれたガーデンスタイルの葬儀式場。自然光が差し込む明るい空間で、故人を偲ぶ温かなお別れの場を提供。湘南エリアの風を感じられる開放的な施設です。',
+  '神奈川県茅ヶ崎市矢畑1280-3',
+  'kanagawa', 'chigasaki',
+  35.3390, 139.4050,
+  '茅ヶ崎',
+  12,
+  80, 2, false, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true, "ガーデン": true}',
+  '[{"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 248000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 378000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 598000}]',
+  ARRAY['ガーデンスタイル', '自然光', '開放的', '湘南エリア'],
+  'セレモア',
+  4.4, 65
+),
+
+-- 21. 家族葬のファミーユ藤沢（藤沢市）
+(
+  '家族葬のファミーユ藤沢',
+  'famille-fujisawa',
+  'private_hall',
+  '藤沢市にある家族葬専門の式場。全国展開するファミーユブランドの藤沢店として、統一された品質のサービスを提供。少人数の温かな葬儀をリーズナブルな価格で実現します。',
+  '神奈川県藤沢市藤沢530-5',
+  'kanagawa', 'fujisawa',
+  35.3395, 139.4870,
+  '藤沢',
+  10,
+  40, 1, false, 10,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "安置室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 95000}, {"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 198000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 328000}]',
+  ARRAY['家族葬専門', '全国チェーン', 'リーズナブル', '品質統一'],
+  'ファミーユ',
+  4.3, 87
+),
+
+-- 22. むすびすホール相模大野（相模原市南区）
+(
+  'むすびすホール相模大野',
+  'musubisu-hall-sagami-ono',
+  'private_hall',
+  '相模原市南区の相模大野駅近くにある葬儀式場。「お葬式のむすびす」が運営する式場で、事前相談から葬儀後のアフターフォローまで手厚いサポートが特長。適正価格で納得の葬儀を提供します。',
+  '神奈川県相模原市南区相模大野5-28-10',
+  'kanagawa', 'sagamihara-minami',
+  35.5300, 139.4380,
+  '相模大野',
+  8,
+  80, 2, false, 15,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true, "事前相談室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 110000}, {"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 258000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 398000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 648000}]',
+  ARRAY['駅近', '事前相談充実', 'アフターフォロー', '適正価格'],
+  'むすびす',
+  4.5, 98
+),
+
+-- 23. 小田原セレモニーホール（小田原市）
+(
+  '小田原セレモニーホール',
+  'odawara-ceremony-hall',
+  'private_hall',
+  '小田原市にある民営葬儀式場。箱根の入口に位置し、歴史ある城下町の風情を感じられる立地です。地域密着型のサービスで、地元の方々に長年親しまれている式場です。',
+  '神奈川県小田原市栄町2-8-15',
+  'kanagawa', 'odawara',
+  35.2560, 139.1560,
+  '小田原',
+  10,
+  100, 2, false, 25,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 218000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 348000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 548000}]',
+  ARRAY['地域密着', '歴史ある街', '駅徒歩圏内', '2ホール'],
+  '小田原セレモニー',
+  4.0, 42
+),
+
+-- 24. 座間市営斎場（座間市）
+(
+  '座間市営斎場',
+  'zama-shiei-saijo',
+  'public_facility',
+  '座間市が運営する公営の斎場。市民の方は低廉な使用料で式場をご利用いただけます。清潔感のある施設で、スタッフの対応も丁寧と好評。座間市民に広く利用されている施設です。',
+  '神奈川県座間市入谷西3-50-1',
+  'kanagawa', 'zama',
+  35.4860, 139.3980,
+  '座間',
+  15,
+  80, 2, false, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 68000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 258000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 458000}]',
+  ARRAY['公営斎場', '市民優先', '低廉な使用料', '駐車場完備'],
+  '座間市',
+  3.9, 35
+),
+
+-- 25. 伊勢原市営斎場（伊勢原市）
+(
+  '伊勢原市営斎場',
+  'isehara-shiei-saijo',
+  'public_facility',
+  '伊勢原市が運営する公営斎場。大山を望む穏やかな環境に位置し、市民料金で利用できる式場を完備。バリアフリー設計で高齢の方にも安心してご利用いただけます。',
+  '神奈川県伊勢原市三ノ宮1480',
+  'kanagawa', 'isehara',
+  35.4080, 139.2850,
+  '伊勢原',
+  20,
+  70, 1, false, 25,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 65000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 268000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 468000}]',
+  ARRAY['公営斎場', '市民優先', 'バリアフリー', '大山を望む'],
+  '伊勢原市',
+  3.8, 22
+),
+
+-- 26. 綾瀬市斎場（綾瀬市）
+(
+  '綾瀬市斎場',
+  'ayase-saijo',
+  'public_facility',
+  '綾瀬市にある公営の斎場。落ち着いた住宅地の中に位置し、静かな環境でお別れの時間を過ごせます。綾瀬市民の方は使用料が減額され、経済的な負担を軽減して葬儀を執り行えます。',
+  '神奈川県綾瀬市深谷中7-14-1',
+  'kanagawa', 'ayase',
+  35.4310, 139.4320,
+  'かしわ台',
+  18,
+  60, 1, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 62000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 248000}]',
+  ARRAY['公営斎場', '市民優先', '閑静な環境', '経済的'],
+  '綾瀬市',
+  3.7, 18
+),
+
+-- 27. 海老名市斎場（海老名市）
+(
+  '海老名市斎場',
+  'ebina-saijo',
+  'public_facility',
+  '海老名市が運営する公営斎場。海老名駅からバスでのアクセスが可能で、広い駐車場を完備。式場は清潔感があり、市民向けの低料金で利用できるため、地域に根ざした施設として親しまれています。',
+  '神奈川県海老名市杉久保北3-8-1',
+  'kanagawa', 'ebina',
+  35.4490, 139.3780,
+  '海老名',
+  15,
+  80, 2, false, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 72000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 278000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 478000}]',
+  ARRAY['公営斎場', '市民優先', '広い駐車場', '2ホール完備'],
+  '海老名市',
+  4.0, 40
+),
+
+-- 28. さがみ典礼横浜港南台ホール（横浜市港南区）
+(
+  'さがみ典礼横浜港南台ホール',
+  'sagami-tenrei-konandai-hall',
+  'private_hall',
+  '大手葬儀社さがみ典礼が運営する横浜市港南区の式場。長年の実績に基づく安心のサービスと、充実した設備が特長。経験豊富なスタッフが葬儀全般をトータルでサポートします。',
+  '神奈川県横浜市港南区港南台5-2-18',
+  'kanagawa', 'yokohama-kounan',
+  35.3730, 139.5750,
+  '港南台',
+  10,
+  100, 2, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true, "宿泊設備": true}',
+  '[{"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 258000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 398000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 698000}]',
+  ARRAY['大手葬儀社', '実績豊富', '宿泊可能', 'トータルサポート'],
+  'さがみ典礼',
+  4.2, 82
+),
+
+-- 29. さがみ典礼横浜瀬谷ホール（横浜市瀬谷区）
+(
+  'さがみ典礼横浜瀬谷ホール',
+  'sagami-tenrei-seya-hall',
+  'private_hall',
+  '横浜市瀬谷区に位置するさがみ典礼運営の葬儀式場。瀬谷駅から近く交通の便が良好。大ホールと小ホールを備え、家族葬から一般葬まで幅広い規模の葬儀に対応しています。',
+  '神奈川県横浜市瀬谷区瀬谷4-25-10',
+  'kanagawa', 'yokohama-seya',
+  35.4630, 139.4960,
+  '瀬谷',
+  5,
+  120, 2, false, 25,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 108000}, {"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 248000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 378000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 648000}]',
+  ARRAY['大手葬儀社', '駅近', '2ホール完備', '幅広い規模対応'],
+  'さがみ典礼',
+  4.1, 68
+),
+
+-- 30. さがみ典礼鎌倉ホール（鎌倉市）
+(
+  'さがみ典礼鎌倉ホール',
+  'sagami-tenrei-kamakura-hall',
+  'private_hall',
+  '古都鎌倉にあるさがみ典礼運営の葬儀式場。歴史ある街並みにふさわしい落ち着いた佇まいで、ご遺族の気持ちに寄り添った丁寧な葬儀を提供。鎌倉駅からのアクセスも良好です。',
+  '神奈川県鎌倉市小町2-12-35',
+  'kanagawa', 'kamakura',
+  35.3220, 139.5510,
+  '鎌倉',
+  8,
+  80, 2, false, 15,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 248000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 398000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 648000}]',
+  ARRAY['大手葬儀社', '古都鎌倉', '駅徒歩圏内', '落ち着いた雰囲気'],
+  'さがみ典礼',
+  4.3, 58
+),
+
+-- 31. セレモニーホール平塚（平塚市）
+(
+  'セレモニーホール平塚',
+  'ceremony-hall-hiratsuka',
+  'private_hall',
+  '平塚市にある民営の葬儀式場。平塚駅からバスアクセスが可能で、広々とした駐車場を完備。地域の方々に長年利用されてきた信頼の式場で、幅広い宗派の葬儀に対応しています。',
+  '神奈川県平塚市四之宮2-10-20',
+  'kanagawa', 'hiratsuka',
+  35.3450, 139.3520,
+  '平塚',
+  15,
+  100, 2, false, 35,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 218000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 348000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 548000}]',
+  ARRAY['地域密着', '全宗派対応', '広い駐車場', '長年の実績'],
+  'セレモニーホール平塚',
+  4.0, 45
+),
+
+-- 32. 横浜南共済病院メモリアルホール（横浜市金沢区）
+(
+  '横浜南共済病院メモリアルホール',
+  'yokohama-minami-kyosai-memorial',
+  'private_hall',
+  '横浜市金沢区に位置する葬儀式場。病院に隣接した立地で、ご逝去後の迅速な対応が可能です。清潔感のある施設と丁寧なスタッフ対応で、ご遺族の負担を軽減するサービスを提供しています。',
+  '神奈川県横浜市金沢区六浦東1-21-5',
+  'kanagawa', 'yokohama-kanazawa',
+  35.3350, 139.6210,
+  '追浜',
+  10,
+  60, 1, false, 15,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 98000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 328000}]',
+  ARRAY['病院隣接', '迅速対応', '清潔感', 'バリアフリー'],
+  '横浜南共済メモリアル',
+  3.9, 32
+),
+
+-- 33. 湘南セレモニーホール（茅ヶ崎市）
+(
+  '湘南セレモニーホール',
+  'shonan-ceremony-hall',
+  'private_hall',
+  '茅ヶ崎市にある湘南エリアを代表する民営葬儀式場。海の近くにある明るい雰囲気の施設で、故人の人生を讃える温かなお別れの場を提供。花祭壇に力を入れた華やかな演出が好評です。',
+  '神奈川県茅ヶ崎市新栄町8-5',
+  'kanagawa', 'chigasaki',
+  35.3360, 139.4020,
+  '茅ヶ崎',
+  8,
+  90, 2, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true, "花祭壇": true}',
+  '[{"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 258000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 398000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 628000}]',
+  ARRAY['湘南エリア', '花祭壇充実', '明るい雰囲気', '駅近'],
+  '湘南セレモニー',
+  4.4, 75
+),
+
+-- 34. 川崎高津メモリアルホール（川崎市高津区）
+(
+  '川崎高津メモリアルホール',
+  'kawasaki-takatsu-memorial-hall',
+  'private_hall',
+  '川崎市高津区にある民営葬儀式場。溝の口駅から近い好立地で、東京方面からのアクセスも良好。モダンで落ち着いた空間に、最新の音響・映像設備を完備した式場が特長です。',
+  '神奈川県川崎市高津区溝口3-15-8',
+  'kanagawa', 'kawasaki-takatsu',
+  35.5980, 139.6120,
+  '溝の口',
+  7,
+  100, 2, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true, "映像設備": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 118000}, {"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 268000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 418000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 698000}]',
+  ARRAY['駅近', '映像設備完備', 'モダンな空間', '東京からアクセス良好'],
+  '川崎高津メモリアル',
+  4.3, 70
+),
+
+-- 35. 宮前区家族葬ホール（川崎市宮前区）
+(
+  '宮前区家族葬ホール',
+  'miyamae-kazokusou-hall',
+  'private_hall',
+  '川崎市宮前区にある家族葬専門のコンパクトな式場。閑静な住宅街に位置し、自宅に近い感覚で少人数のお別れの時間を過ごせます。24時間対応の安置室を完備し、急なご依頼にも対応可能です。',
+  '神奈川県川崎市宮前区宮前平2-8-3',
+  'kanagawa', 'kawasaki-miyamae',
+  35.5810, 139.5830,
+  '宮前平',
+  6,
+  30, 1, false, 8,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "安置室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 98000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 298000}]',
+  ARRAY['家族葬専門', '24時間安置対応', '閑静な立地', '少人数向け'],
+  '宮前家族葬センター',
+  4.2, 48
+),
+
+-- 36. 相模原中央セレモニーホール（相模原市中央区）
+(
+  '相模原中央セレモニーホール',
+  'sagamihara-chuo-ceremony-hall',
+  'private_hall',
+  '相模原市中央区にある中規模の民営葬儀式場。相模原駅からバスでアクセス可能。広々としたホールと充実した設備で、家族葬から一般葬まで幅広い規模の葬儀に対応しています。',
+  '神奈川県相模原市中央区相模原4-3-18',
+  'kanagawa', 'sagamihara-chuo',
+  35.5710, 139.3730,
+  '相模原',
+  12,
+  120, 3, false, 35,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true, "宿泊設備": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 98000}, {"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 228000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 368000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 598000}]',
+  ARRAY['3ホール完備', '宿泊可能', '広い駐車場', '幅広い規模対応'],
+  '相模原セレモニー',
+  4.1, 55
+),
+
+-- 37. 大和家族葬ホールやすらぎ（大和市）
+(
+  '大和家族葬ホールやすらぎ',
+  'yamato-kazokusou-yasuragi',
+  'private_hall',
+  '大和市にある家族葬に特化した温かみのある式場。故人との最後の時間をゆっくり過ごせるよう、貸切型の空間を提供。追加費用なしのプラン設定で、安心してご利用いただける明朗会計です。',
+  '神奈川県大和市中央林間3-12-8',
+  'kanagawa', 'yamato',
+  35.5070, 139.4560,
+  '中央林間',
+  8,
+  40, 1, false, 10,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "安置室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 88000}, {"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 198000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 298000}]',
+  ARRAY['家族葬特化', '貸切型', '明朗会計', '駅近'],
+  'やすらぎ葬祭',
+  4.4, 63
+),
+
+-- 38. 厚木セントラルホール（厚木市）
+(
+  '厚木セントラルホール',
+  'atsugi-central-hall',
+  'private_hall',
+  '厚木市中心部に位置する民営葬儀式場。本厚木駅からのアクセスが良好で、県央エリアの方に広く利用されています。経験豊富なスタッフによる細やかなサポートが好評です。',
+  '神奈川県厚木市中町3-6-15',
+  'kanagawa', 'atsugi',
+  35.4420, 139.3630,
+  '本厚木',
+  8,
+  100, 2, false, 25,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true, "宿泊設備": true}',
+  '[{"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 238000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 368000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 578000}]',
+  ARRAY['駅近', '県央エリア', '宿泊可能', '経験豊富なスタッフ'],
+  '厚木セントラル葬祭',
+  4.1, 50
+),
+
+-- 39. 相模原みどりの杜ホール（相模原市緑区）
+(
+  '相模原みどりの杜ホール',
+  'sagamihara-midori-no-mori-hall',
+  'private_hall',
+  '相模原市緑区の緑豊かな環境にある葬儀式場。橋本駅からのアクセスが可能で、自然に囲まれた落ち着いた雰囲気の中でお別れの時間を過ごせます。ガーデン付きの式場が人気です。',
+  '神奈川県相模原市緑区橋本6-25-3',
+  'kanagawa', 'sagamihara-midori',
+  35.5940, 139.3460,
+  '橋本',
+  12,
+  80, 2, false, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true, "ガーデン": true}',
+  '[{"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 228000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 358000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 558000}]',
+  ARRAY['緑豊か', 'ガーデン付き', '自然に囲まれた環境', '広い駐車場'],
+  'みどりの杜葬祭',
+  4.2, 42
+),
+
+-- 40. 横須賀中央メモリアルホール（横須賀市）
+(
+  '横須賀中央メモリアルホール',
+  'yokosuka-chuo-memorial-hall',
+  'private_hall',
+  '横須賀市中心部にある民営葬儀式場。横須賀中央駅から徒歩圏内で交通の便が良く、三浦半島エリアの方に広く利用されています。海を感じる温かな雰囲気の式場が特長です。',
+  '神奈川県横須賀市若松町2-5-10',
+  'kanagawa', 'yokosuka',
+  35.2790, 139.6710,
+  '横須賀中央',
+  6,
+  90, 2, false, 15,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 108000}, {"type": "ichinichisou", "label": "一日葬プラン", "priceFrom": 248000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 378000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 598000}]',
+  ARRAY['駅近', '三浦半島エリア', '海の雰囲気', '2ホール完備'],
+  '横須賀メモリアル',
+  4.2, 60
+);
+
+
+-- =============================================
+-- 埼玉県の追加斎場（35件）
+-- =============================================
+
+INSERT INTO venues (name, slug, venue_type, description, address, prefecture_slug, city_slug, latitude, longitude, nearest_station, station_walk_minutes, capacity_max, hall_count, has_crematorium, parking_count, facilities, price_plans, features, operator_name, rating_avg, review_count) VALUES
+
+-- 1. 思い出の里（さいたま市見沼区）
+(
+  '思い出の里',
+  'omoide-no-sato',
+  'public_crematorium',
+  'さいたま市が運営する大規模な公営火葬場。緑豊かな敷地内に複数の式場を備え、火葬から告別式まで一貫して対応可能。市民料金が適用されるため費用を抑えた葬儀が実現できます。',
+  '埼玉県さいたま市見沼区大字上山口新田111',
+  'saitama', 'saitama-minuma',
+  35.9153, 139.6572,
+  '大和田',
+  25,
+  150, 6, true, 200,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 89000}, {"type": "ichinichiSou", "label": "一日葬プラン", "priceFrom": 258000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 398000}]',
+  ARRAY['公営斎場', '火葬場併設', '大規模駐車場完備', 'さいたま市民料金あり', '複数式場'],
+  'さいたま市',
+  4.1, 67
+),
+
+-- 2. 広域飯能斎場（飯能市）
+(
+  '広域飯能斎場',
+  'kouiki-hanno-saijo',
+  'public_crematorium',
+  '飯能市・日高市の広域組合が運営する公営火葬場。山間の静かな環境に位置し、落ち着いた雰囲気の中でお別れの時間を過ごせます。式場も併設しており通夜から火葬まで対応。',
+  '埼玉県飯能市大字飯能1240-1',
+  'saitama', 'hanno',
+  35.8480, 139.3140,
+  '飯能',
+  20,
+  80, 2, true, 60,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 78000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 348000}]',
+  ARRAY['公営斎場', '火葬場併設', '自然豊かな環境', '広域利用可能'],
+  '飯能日高広域組合',
+  3.9, 28
+),
+
+-- 3. メモリアルトネ（加須市）
+(
+  'メモリアルトネ',
+  'memorial-tone',
+  'public_crematorium',
+  '加須市が運営する近代的な公営火葬場。利根川沿いの広い敷地に建つ清潔感のある施設で、火葬炉と式場を完備。地域住民に手頃な料金で利用されています。',
+  '埼玉県加須市北小浜1060',
+  'saitama', 'kazo',
+  36.1350, 139.6080,
+  '加須',
+  30,
+  100, 2, true, 80,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 75000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 328000}]',
+  ARRAY['公営斎場', '火葬場併設', '広い駐車場', '加須市民料金あり'],
+  '加須市',
+  3.8, 22
+),
+
+-- 4. 深丘園（深谷市）
+(
+  '深丘園',
+  'shinkyuen',
+  'public_crematorium',
+  '深谷市が管理運営する公営の火葬場・斎場。落ち着いた佇まいの施設で、火葬から告別式まで一連の葬送を執り行えます。市民には優遇料金が適用されます。',
+  '埼玉県深谷市東大沼893',
+  'saitama', 'fukaya',
+  36.2020, 139.3050,
+  '深谷',
+  15,
+  80, 2, true, 60,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 72000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 318000}]',
+  ARRAY['公営斎場', '火葬場併設', '市民優遇料金', '駅から比較的近い'],
+  '深谷市',
+  3.8, 19
+),
+
+-- 5. しののめの里（富士見市）
+(
+  'しののめの里',
+  'shinonome-no-sato',
+  'public_facility',
+  '富士見市が運営する公営の斎場施設。モダンな建築と手入れの行き届いた庭園が特徴で、家族葬から一般葬まで幅広い規模の葬儀に対応。市民に親しまれている施設です。',
+  '埼玉県富士見市大字下南畑71-1',
+  'saitama', 'fujimi',
+  35.8550, 139.5510,
+  'みずほ台',
+  20,
+  120, 3, false, 80,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true}',
+  '[{"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 358000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 548000}]',
+  ARRAY['公営斎場', 'モダンな施設', '庭園あり', '富士見市民料金あり'],
+  '富士見市',
+  4.0, 35
+),
+
+-- 6. 広域静苑組合・越生斎場（入間郡越生町）
+(
+  '広域静苑組合・越生斎場',
+  'kouiki-seien-ogose-saijo',
+  'public_crematorium',
+  '越生町を中心とした広域組合が運営する公営火葬場。山間の静寂に包まれた環境で、心穏やかにお別れの時間を過ごせます。近隣市町村からの利用も可能です。',
+  '埼玉県入間郡越生町大字如意51-1',
+  'saitama', 'ogose',
+  35.9540, 139.2870,
+  '越生',
+  15,
+  60, 1, true, 40,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 68000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 298000}]',
+  ARRAY['公営斎場', '火葬場併設', '静かな山間の環境', '広域利用可能'],
+  '広域静苑組合',
+  3.7, 14
+),
+
+-- 7. 秩父斎場（秩父市）
+(
+  '秩父斎場',
+  'chichibu-saijo',
+  'public_crematorium',
+  '秩父市が運営する公営火葬場・斎場。秩父の豊かな自然に囲まれた施設で、火葬と式場を備えています。地域の方々に長年利用されてきた信頼のある公営斎場です。',
+  '埼玉県秩父市山田1803',
+  'saitama', 'chichibu',
+  35.9870, 139.0680,
+  '秩父',
+  25,
+  80, 2, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 72000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 308000}]',
+  ARRAY['公営斎場', '火葬場併設', '自然に囲まれた環境', '秩父市民料金あり'],
+  '秩父市',
+  3.8, 24
+),
+
+-- 8. 熊谷市斎場（熊谷市）
+(
+  '熊谷市斎場',
+  'kumagaya-saijo',
+  'public_crematorium',
+  '熊谷市が運営する公営斎場で、火葬場と式場を併設。広々とした施設で一般葬から家族葬まで対応可能。熊谷市民には優遇料金が適用され、地域に根差した斎場として親しまれています。',
+  '埼玉県熊谷市広瀬800-2',
+  'saitama', 'kumagaya',
+  36.1480, 139.3680,
+  '熊谷',
+  20,
+  120, 3, true, 100,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 82000}, {"type": "ichinichiSou", "label": "一日葬プラン", "priceFrom": 268000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 378000}]',
+  ARRAY['公営斎場', '火葬場併設', '広い施設', '熊谷市民料金あり', '複数式場完備'],
+  '熊谷市',
+  4.0, 42
+),
+
+-- 9. 春日部市斎場（春日部市）
+(
+  '春日部市斎場',
+  'kasukabe-saijo',
+  'public_crematorium',
+  '春日部市が運営する公営の火葬場併設斎場。清潔で手入れの行き届いた施設内には式場や控室を完備し、家族葬から一般葬まで幅広く対応。市民優遇料金あり。',
+  '埼玉県春日部市内牧3090',
+  'saitama', 'kasukabe',
+  35.9880, 139.7420,
+  '春日部',
+  25,
+  100, 2, true, 80,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 80000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 358000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 528000}]',
+  ARRAY['公営斎場', '火葬場併設', '春日部市民料金あり', '充実した設備'],
+  '春日部市',
+  4.1, 38
+),
+
+-- 10. 入間市斎場（入間市）
+(
+  '入間市斎場',
+  'iruma-saijo',
+  'public_crematorium',
+  '入間市が管理する公営の火葬場・斎場。緑に囲まれた静かな環境の中に式場と火葬炉を備え、故人との最後の時間を大切に過ごせる施設。入間市民は優遇料金で利用可能。',
+  '埼玉県入間市小谷田1-13-7',
+  'saitama', 'iruma',
+  35.8220, 139.3750,
+  '入間市',
+  20,
+  80, 2, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 75000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 328000}]',
+  ARRAY['公営斎場', '火葬場併設', '緑豊かな環境', '入間市民料金あり'],
+  '入間市',
+  3.9, 26
+),
+
+-- 11. 草加市斎場（草加市）
+(
+  '草加市斎場',
+  'soka-saijo',
+  'public_facility',
+  '草加市が運営する公営斎場。東京都に隣接する好立地で、市内外からのアクセスが良好。式場や控室など必要な設備を整え、市民に手頃な料金で葬儀サービスを提供しています。',
+  '埼玉県草加市神明2-7-35',
+  'saitama', 'soka',
+  35.8310, 139.8020,
+  '草加',
+  15,
+  100, 2, false, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 348000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 528000}]',
+  ARRAY['公営斎場', '駅から徒歩圏内', '草加市民料金あり', '東京近接エリア'],
+  '草加市',
+  3.9, 31
+),
+
+-- 12. 新座市営墓園斎場（新座市）
+(
+  '新座市営墓園斎場',
+  'niiza-shiei-boen-saijo',
+  'public_facility',
+  '新座市営墓園内に併設された公営の斎場施設。墓園と一体となった環境で、葬儀から納骨までを一貫して行える利便性が特徴。落ち着いた雰囲気の中で故人を偲べます。',
+  '埼玉県新座市大和田4-1-1',
+  'saitama', 'niiza',
+  35.7970, 139.5680,
+  '新座',
+  18,
+  80, 2, false, 60,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 358000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 538000}]',
+  ARRAY['公営斎場', '墓園併設', '葬儀から納骨まで一貫対応', '新座市民料金あり'],
+  '新座市',
+  3.8, 20
+),
+
+-- 13. 川口メモリアルホール（川口市）
+(
+  '川口メモリアルホール',
+  'kawaguchi-memorial-hall',
+  'private_hall',
+  '川口市内にある民営の葬儀専用ホール。少人数の家族葬から大規模な一般葬まで柔軟に対応。経験豊富なスタッフが丁寧にサポートし、故人にふさわしいお別れの場を提供します。',
+  '埼玉県川口市本町4-3-14',
+  'saitama', 'kawaguchi',
+  35.8070, 139.7220,
+  '川口',
+  8,
+  120, 3, false, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 148000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 428000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 648000}]',
+  ARRAY['駅近', '家族葬対応', '大規模葬対応', '24時間対応', '経験豊富なスタッフ'],
+  '川口メモリアルホール',
+  4.2, 55
+),
+
+-- 14. メモリアルホール岡部（深谷市）
+(
+  'メモリアルホール岡部',
+  'memorial-hall-okabe',
+  'private_hall',
+  '深谷市岡部地区にある民営葬儀ホール。地域に密着した温かみのあるサービスが評判で、小規模な家族葬を中心に地元の方々に支持されています。アットホームな雰囲気が特徴です。',
+  '埼玉県深谷市岡2500-1',
+  'saitama', 'fukaya',
+  36.1780, 139.2680,
+  '岡部',
+  10,
+  60, 2, false, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 128000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 378000}]',
+  ARRAY['地域密着', '家族葬に最適', 'アットホーム', '駅近'],
+  'メモリアルホール岡部',
+  4.0, 18
+),
+
+-- 15. さがみ典礼 やすらぎホール熊谷（熊谷市）
+(
+  'さがみ典礼 やすらぎホール熊谷',
+  'sagami-tenrei-yasuragi-kumagaya',
+  'private_hall',
+  'さがみ典礼が運営する熊谷エリアの葬儀ホール。全国展開の安心感と地域に根差したきめ細やかなサービスを両立。家族葬から社葬まで多様なニーズに対応する設備を完備しています。',
+  '埼玉県熊谷市石原1-1-1',
+  'saitama', 'kumagaya',
+  36.1350, 139.3850,
+  '石原',
+  8,
+  150, 4, false, 80,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true, "シャワー室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 165000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 458000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 698000}]',
+  ARRAY['大手葬儀社', '24時間対応', '充実した設備', '経験豊富なスタッフ', '大規模葬対応'],
+  'さがみ典礼',
+  4.3, 72
+),
+
+-- 16. メモリアルホール川越（川越市）
+(
+  'メモリアルホール川越',
+  'memorial-hall-kawagoe',
+  'private_hall',
+  '川越市に位置する民営葬儀ホール。歴史ある小江戸川越の地で、伝統と現代のサービスを融合させた葬儀を提供。家族葬から一般葬まで対応し、きめ細やかなサポートが好評です。',
+  '埼玉県川越市脇田本町15-3',
+  'saitama', 'kawagoe',
+  35.9080, 139.4830,
+  '川越',
+  7,
+  100, 3, false, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 142000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 418000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 628000}]',
+  ARRAY['駅近', '家族葬対応', '川越エリア', '24時間対応'],
+  'メモリアルホール川越',
+  4.1, 43
+),
+
+-- 17. さがみ典礼 大宮ホール（さいたま市大宮区）
+(
+  'さがみ典礼 大宮ホール',
+  'sagami-tenrei-omiya-hall',
+  'private_hall',
+  'さいたま市大宮区に位置するさがみ典礼の大型葬儀ホール。大宮駅からのアクセスが良く、家族葬から大規模な一般葬・社葬まで幅広く対応。充実した設備と手厚いサポートが魅力です。',
+  '埼玉県さいたま市大宮区吉敷町2-85',
+  'saitama', 'saitama-omiya',
+  35.8960, 139.6250,
+  '大宮',
+  12,
+  200, 5, false, 100,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true, "シャワー室": true, "給湯室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 178000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 478000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 748000}, {"type": "shasou", "label": "社葬プラン", "priceFrom": 1280000}]',
+  ARRAY['大手葬儀社', '大規模対応', '駅近', '24時間対応', '社葬対応', '充実した設備'],
+  'さがみ典礼',
+  4.4, 89
+),
+
+-- 18. さがみ典礼 浦和ホール（さいたま市浦和区）
+(
+  'さがみ典礼 浦和ホール',
+  'sagami-tenrei-urawa-hall',
+  'private_hall',
+  'さいたま市浦和区にあるさがみ典礼運営の葬儀ホール。浦和駅に近い好立地で参列者のアクセスも便利。上質な空間と丁寧な対応で、大切な方との最後の時間を心を込めてサポートします。',
+  '埼玉県さいたま市浦和区仲町3-5-1',
+  'saitama', 'saitama-urawa',
+  35.8620, 139.6510,
+  '浦和',
+  10,
+  150, 4, false, 60,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 168000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 458000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 718000}]',
+  ARRAY['大手葬儀社', '駅近', '上質な空間', '24時間対応', '好アクセス'],
+  'さがみ典礼',
+  4.3, 76
+),
+
+-- 19. さがみ典礼 川越ホール（川越市）
+(
+  'さがみ典礼 川越ホール',
+  'sagami-tenrei-kawagoe-hall',
+  'private_hall',
+  '川越市にあるさがみ典礼の葬儀専用ホール。温かみのある内装と充実した設備で、ご遺族の気持ちに寄り添った葬儀を提供。家族葬から一般葬まで柔軟に対応いたします。',
+  '埼玉県川越市新富町1-18-6',
+  'saitama', 'kawagoe',
+  35.9170, 139.4870,
+  '本川越',
+  5,
+  120, 3, false, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 158000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 438000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 678000}]',
+  ARRAY['大手葬儀社', '駅近', '24時間対応', '温かみのある空間'],
+  'さがみ典礼',
+  4.2, 51
+),
+
+-- 20. さがみ典礼 春日部ホール（春日部市）
+(
+  'さがみ典礼 春日部ホール',
+  'sagami-tenrei-kasukabe-hall',
+  'private_hall',
+  '春日部市中心部に位置するさがみ典礼の葬儀ホール。東武鉄道からのアクセスが良好で、地域の方々に広く利用されています。経験豊かなスタッフが真心込めてお手伝いいたします。',
+  '埼玉県春日部市中央1-52-1',
+  'saitama', 'kasukabe',
+  35.9760, 139.7530,
+  '春日部',
+  6,
+  120, 3, false, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 155000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 438000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 668000}]',
+  ARRAY['大手葬儀社', '駅近', '好アクセス', '24時間対応'],
+  'さがみ典礼',
+  4.2, 48
+),
+
+-- 21. さがみ典礼 越谷ホール（越谷市）
+(
+  'さがみ典礼 越谷ホール',
+  'sagami-tenrei-koshigaya-hall',
+  'private_hall',
+  '越谷市にあるさがみ典礼の葬儀ホール。越谷レイクタウンにも近い立地で、広い駐車場を完備。清潔感のある式場で、心に残るお別れの時間を提供しています。',
+  '埼玉県越谷市越ヶ谷1-16-6',
+  'saitama', 'koshigaya',
+  35.8910, 139.7900,
+  '越谷',
+  8,
+  120, 3, false, 60,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 158000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 448000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 688000}]',
+  ARRAY['大手葬儀社', '駅近', '広い駐車場', '24時間対応'],
+  'さがみ典礼',
+  4.2, 53
+),
+
+-- 22. さがみ典礼 草加ホール（草加市）
+(
+  'さがみ典礼 草加ホール',
+  'sagami-tenrei-soka-hall',
+  'private_hall',
+  '草加市にあるさがみ典礼運営の葬儀ホール。東京都に隣接するアクセスの良さと落ち着いた式場空間が特徴。草加駅からも近く、ご遺族・参列者双方にとって便利な立地です。',
+  '埼玉県草加市高砂2-2-33',
+  'saitama', 'soka',
+  35.8260, 139.8040,
+  '草加',
+  6,
+  100, 2, false, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 155000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 428000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 658000}]',
+  ARRAY['大手葬儀社', '駅近', '東京近接エリア', '24時間対応'],
+  'さがみ典礼',
+  4.1, 45
+),
+
+-- 23. さがみ典礼 所沢ホール（所沢市）
+(
+  'さがみ典礼 所沢ホール',
+  'sagami-tenrei-tokorozawa-hall',
+  'private_hall',
+  '所沢市にあるさがみ典礼の葬儀ホール。西武線所沢駅からのアクセスが良く、多くの参列者を迎えるのに便利。落ち着いた雰囲気の式場で、心温まるお別れの場を提供します。',
+  '埼玉県所沢市日吉町10-21',
+  'saitama', 'tokorozawa',
+  35.7990, 139.4700,
+  '所沢',
+  8,
+  120, 3, false, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 162000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 448000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 688000}]',
+  ARRAY['大手葬儀社', '駅近', '西武線沿線', '24時間対応'],
+  'さがみ典礼',
+  4.2, 58
+),
+
+-- 24. 家族葬のファミーユ大宮（さいたま市大宮区）
+(
+  '家族葬のファミーユ大宮',
+  'famille-omiya',
+  'private_hall',
+  '大宮エリアに位置する家族葬専門ホール。少人数での温かいお別れを大切にした空間設計が特徴で、プライベートな葬儀をご希望の方に最適。明瞭な料金体系で安心して利用できます。',
+  '埼玉県さいたま市大宮区桜木町2-3-16',
+  'saitama', 'saitama-omiya',
+  35.9040, 139.6280,
+  '大宮',
+  10,
+  40, 2, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 125000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 378000}]',
+  ARRAY['家族葬専門', '少人数対応', '明瞭料金', '駅近', 'アットホーム'],
+  '家族葬のファミーユ',
+  4.3, 62
+),
+
+-- 25. 家族葬のファミーユ浦和（さいたま市浦和区）
+(
+  '家族葬のファミーユ浦和',
+  'famille-urawa',
+  'private_hall',
+  '浦和エリアの家族葬専門ホール。ご家族だけで過ごす穏やかな時間を大切にした設計で、少人数の温かい葬儀に特化。わかりやすい料金プランと親身なスタッフ対応が評判です。',
+  '埼玉県さいたま市浦和区高砂3-7-4',
+  'saitama', 'saitama-urawa',
+  35.8580, 139.6540,
+  '浦和',
+  8,
+  40, 2, false, 15,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 125000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 378000}]',
+  ARRAY['家族葬専門', '少人数対応', '明瞭料金', '駅近'],
+  '家族葬のファミーユ',
+  4.4, 58
+),
+
+-- 26. 家族葬のファミーユ川口（川口市）
+(
+  '家族葬のファミーユ川口',
+  'famille-kawaguchi',
+  'private_hall',
+  '川口市にある家族葬専門の葬儀ホール。東京との県境に近い好立地で、都内からの参列も便利。コンパクトながら温かみのある式場で、少人数の心のこもったお別れを実現します。',
+  '埼玉県川口市栄町3-12-1',
+  'saitama', 'kawaguchi',
+  35.8100, 139.7170,
+  '川口',
+  6,
+  40, 2, false, 15,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 128000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 388000}]',
+  ARRAY['家族葬専門', '少人数対応', '駅近', '東京近接エリア', '明瞭料金'],
+  '家族葬のファミーユ',
+  4.3, 49
+),
+
+-- 27. セレモニーホール典礼会館 東浦和（さいたま市緑区）
+(
+  'セレモニーホール典礼会館 東浦和',
+  'tenrei-kaikan-higashi-urawa',
+  'private_hall',
+  'さいたま市緑区に位置する葬儀専用ホール。東浦和駅から徒歩圏内の便利な立地で、閑静な住宅街の中にあり落ち着いた雰囲気。家族葬を中心に地域の方々に信頼されている施設です。',
+  '埼玉県さいたま市緑区東浦和5-18-7',
+  'saitama', 'saitama-midori',
+  35.8480, 139.6820,
+  '東浦和',
+  8,
+  80, 2, false, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 138000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 398000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 618000}]',
+  ARRAY['駅近', '閑静な環境', '家族葬対応', '地域密着'],
+  'セレモニーホール典礼会館',
+  4.0, 33
+),
+
+-- 28. むすびすホール朝霞（朝霞市）
+(
+  'むすびすホール朝霞',
+  'musubisu-hall-asaka',
+  'private_hall',
+  '朝霞市にあるむすびす運営の葬儀ホール。「想いをつなぐ」をコンセプトに、一組一組に合わせたオーダーメイドの葬儀を提案。洗練されたデザインの式場で心温まるお別れを実現します。',
+  '埼玉県朝霞市本町2-4-25',
+  'saitama', 'asaka',
+  35.7980, 139.5940,
+  '朝霞',
+  7,
+  80, 2, false, 25,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 185000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 498000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 748000}]',
+  ARRAY['オーダーメイド葬儀', '駅近', '洗練されたデザイン', '24時間対応'],
+  'むすびす',
+  4.5, 41
+),
+
+-- 29. メモリードホール大宮（さいたま市大宮区）
+(
+  'メモリードホール大宮',
+  'memolead-hall-omiya',
+  'private_hall',
+  'メモリードグループが運営する大宮エリアの葬儀ホール。全国展開の実績とノウハウを活かし、高品質な葬儀サービスを提供。式場設備やサービス内容の充実度が高く評価されています。',
+  '埼玉県さいたま市大宮区大門町3-88',
+  'saitama', 'saitama-omiya',
+  35.9010, 139.6310,
+  '大宮',
+  8,
+  150, 4, false, 60,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true, "シャワー室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 175000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 468000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 728000}]',
+  ARRAY['大手葬儀社', '駅近', '高品質サービス', '充実した設備', '24時間対応'],
+  'メモリードグループ',
+  4.3, 65
+),
+
+-- 30. メモリードホール所沢（所沢市）
+(
+  'メモリードホール所沢',
+  'memolead-hall-tokorozawa',
+  'private_hall',
+  '所沢市に位置するメモリードグループの葬儀ホール。西武池袋線沿線でアクセスが良好。清潔で落ち着いた雰囲気の式場と手厚いサポート体制で、安心して葬儀を任せられると好評です。',
+  '埼玉県所沢市くすのき台3-4-2',
+  'saitama', 'tokorozawa',
+  35.7940, 139.4730,
+  '所沢',
+  10,
+  100, 3, false, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 168000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 448000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 698000}]',
+  ARRAY['大手葬儀社', '駅近', '西武線沿線', '24時間対応', '安心のサポート'],
+  'メモリードグループ',
+  4.2, 47
+),
+
+-- 31. 戸田葬祭場（戸田市）
+(
+  '戸田葬祭場',
+  'toda-sousaijo',
+  'private_hall',
+  '戸田市に位置する民営の葬祭場。東京都板橋区にも近い立地で都内からのアクセスも良好。火葬場と式場を併設した利便性の高い施設で、葬儀から火葬まで一ヶ所で完結できます。',
+  '埼玉県戸田市氷川町2-13-1',
+  'saitama', 'toda',
+  35.8180, 139.6760,
+  '戸田公園',
+  12,
+  200, 5, true, 100,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true, "僧侶控室": true, "シャワー室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 195000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 498000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 798000}]',
+  ARRAY['火葬場併設', '大規模対応', '東京近接エリア', '一ヶ所完結', '広い駐車場'],
+  '戸田葬祭場',
+  4.1, 83
+),
+
+-- 32. 蕨セレモニーホール（蕨市）
+(
+  '蕨セレモニーホール',
+  'warabi-ceremony-hall',
+  'private_hall',
+  '蕨市にある民営のセレモニーホール。日本で最も面積が小さい市にありながら、コンパクトで機能的な施設を提供。家族葬に特化した温かみのある空間で、きめ細やかなサービスが特徴です。',
+  '埼玉県蕨市中央1-25-8',
+  'saitama', 'warabi',
+  35.8250, 139.6830,
+  '蕨',
+  5,
+  60, 2, false, 15,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 132000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 388000}]',
+  ARRAY['家族葬対応', '駅近', 'コンパクト施設', 'きめ細やかなサービス'],
+  '蕨セレモニーホール',
+  4.0, 29
+),
+
+-- 33. 狭山市斎場（狭山市）
+(
+  '狭山市斎場',
+  'sayama-saijo',
+  'public_crematorium',
+  '狭山市が運営する公営の火葬場・斎場。狭山茶で知られる緑豊かな地域に位置し、火葬炉と式場を完備。市民には手頃な利用料金が設定されており、地域に密着した斎場として利用されています。',
+  '埼玉県狭山市大字上赤坂580',
+  'saitama', 'sayama',
+  35.8630, 139.3950,
+  '狭山市',
+  20,
+  80, 2, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 78000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 338000}]',
+  ARRAY['公営斎場', '火葬場併設', '緑豊かな環境', '狭山市民料金あり'],
+  '狭山市',
+  3.9, 25
+),
+
+-- 34. 久喜市斎場（久喜市）
+(
+  '久喜市斎場',
+  'kuki-saijo',
+  'public_crematorium',
+  '久喜市が運営する公営の火葬場併設斎場。平成に建て替えられた比較的新しい施設で、清潔感のある式場と十分な駐車場を確保。久喜市民は優遇料金で利用でき、地域に根差した施設です。',
+  '埼玉県久喜市大字菖蒲町小林5085',
+  'saitama', 'kuki',
+  36.0580, 139.5960,
+  '久喜',
+  25,
+  100, 2, true, 70,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 76000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 328000}, {"type": "ippansou", "label": "一般葬プラン", "priceFrom": 508000}]',
+  ARRAY['公営斎場', '火葬場併設', '比較的新しい施設', '久喜市民料金あり', '広い駐車場'],
+  '久喜市',
+  4.0, 32
+),
+
+-- 35. 鴻巣市斎場（鴻巣市）
+(
+  '鴻巣市斎場',
+  'konosu-saijo',
+  'public_crematorium',
+  '鴻巣市が管理する公営の火葬場・斎場。荒川沿いの静かな立地にあり、式場と火葬炉を併設。市民料金での利用が可能で、地域のニーズに応えてきた歴史ある公営施設です。',
+  '埼玉県鴻巣市大字箕田3128',
+  'saitama', 'konosu',
+  36.0720, 139.5030,
+  '鴻巣',
+  20,
+  80, 2, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 72000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 318000}]',
+  ARRAY['公営斎場', '火葬場併設', '荒川沿いの静かな環境', '鴻巣市民料金あり'],
+  '鴻巣市',
+  3.8, 21
+),
+
+-- 36. 行田市斎場（行田市）
+(
+  '行田市斎場',
+  'gyoda-saijo',
+  'public_crematorium',
+  '行田市が運営する公営斎場。古墳群や忍城で知られる歴史ある街の火葬場併設施設で、式場・控室など必要な設備を整えています。行田市民向けの優遇料金が設定されています。',
+  '埼玉県行田市大字藤原町1-27-2',
+  'saitama', 'gyoda',
+  36.1380, 139.4550,
+  '行田市',
+  18,
+  80, 2, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 70000}, {"type": "kazokusou", "label": "家族葬プラン", "priceFrom": 308000}]',
+  ARRAY['公営斎場', '火葬場併設', '歴史ある街の斎場', '行田市民料金あり'],
+  '行田市',
+  3.7, 16
+);
+
+
+-- =============================================
+-- 千葉県の追加斎場（35件）
+-- =============================================
+
+INSERT INTO venues (name, slug, venue_type, description, address, prefecture_slug, city_slug, latitude, longitude, nearest_station, station_walk_minutes, capacity_max, hall_count, has_crematorium, parking_count, facilities, price_plans, features, operator_name, rating_avg, review_count) VALUES
+
+-- 1. しおかぜホール茜浜（習志野市）
+(
+  'しおかぜホール茜浜',
+  'shiokaze-hall-akanehama',
+  'public_crematorium',
+  '習志野市が運営する公営斎場。東京湾を望む茜浜エリアに位置し、火葬場と式場を併設。バリアフリー対応で高齢者にも安心の施設です。',
+  '千葉県習志野市茜浜3-7-1',
+  'chiba', 'narashino',
+  35.6780, 140.0230,
+  '新習志野駅',
+  12,
+  80, 2, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 89000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 298000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 498000}]',
+  ARRAY['公営斎場', '火葬場併設', 'バリアフリー対応', '駐車場完備'],
+  '習志野市',
+  4.1, 42
+),
+
+-- 2. 野田市関宿斎場（野田市）
+(
+  '野田市関宿斎場',
+  'noda-sekiyado-saijo',
+  'public_crematorium',
+  '野田市関宿地区に位置する公営火葬場。利根川沿いの静かな環境にあり、地域住民に長く親しまれている施設です。市民は低料金で利用可能。',
+  '千葉県野田市東金野井235',
+  'chiba', 'noda',
+  36.0820, 139.8050,
+  '川間駅',
+  25,
+  40, 1, true, 30,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置室": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 78000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 258000}]',
+  ARRAY['公営斎場', '火葬場併設', '市民料金あり'],
+  '野田市',
+  3.7, 18
+),
+
+-- 3. さくら斎場（佐倉市）
+(
+  'さくら斎場',
+  'sakura-saijo',
+  'public_crematorium',
+  '佐倉市が運営する公営の総合斎場。火葬炉と告別式場を完備し、通夜から火葬まで一箇所で執り行えます。四季の草花に囲まれた落ち着いた環境。',
+  '千葉県佐倉市大蛇町790',
+  'chiba', 'sakura',
+  35.7240, 140.2310,
+  '佐倉駅',
+  20,
+  100, 2, true, 60,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true, "給湯室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 85000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 278000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 478000}]',
+  ARRAY['公営斎場', '火葬場併設', 'バリアフリー対応', '駐車場完備', '佐倉市民優先'],
+  '佐倉市',
+  4.2, 55
+),
+
+-- 4. おみがわ聖苑（香取市）
+(
+  'おみがわ聖苑',
+  'omigawa-seien',
+  'public_crematorium',
+  '香取市小見川地区の公営斎場。利根川下流域の自然豊かな環境に建つ施設で、火葬と告別式に対応。地元の方々に広く利用されています。',
+  '千葉県香取市小見川4780',
+  'chiba', 'katori',
+  35.8620, 140.5950,
+  '小見川駅',
+  15,
+  60, 1, true, 35,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置室": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 75000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 248000}]',
+  ARRAY['公営斎場', '火葬場併設', '市民料金あり'],
+  '香取市',
+  3.8, 22
+),
+
+-- 5. 北総斎場（神崎町）
+(
+  '北総斎場',
+  'hokuso-saijo',
+  'public_crematorium',
+  '香取郡神崎町にある広域利用の公営火葬場。周辺市町村の住民も利用でき、北総地域の葬儀インフラを支える重要な施設。緑に囲まれた静寂な立地。',
+  '千葉県香取郡神崎町松崎557',
+  'chiba', 'kozaki',
+  35.8870, 140.4080,
+  '下総神崎駅',
+  18,
+  50, 1, true, 25,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置室": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 72000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 238000}]',
+  ARRAY['公営斎場', '火葬場併設', '広域利用可'],
+  '神崎町',
+  3.6, 12
+),
+
+-- 6. みたま苑旭（旭市）
+(
+  'みたま苑旭',
+  'mitamaen-asahi',
+  'public_crematorium',
+  '旭市が管理する公営の火葬施設。九十九里浜にほど近い立地で、海風が通り抜ける清らかな環境。市民の方は割引料金で利用いただけます。',
+  '千葉県旭市鎌数4513',
+  'chiba', 'asahi',
+  35.7310, 140.6520,
+  '旭駅',
+  22,
+  50, 1, true, 30,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置室": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 70000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 235000}]',
+  ARRAY['公営斎場', '火葬場併設', '市民割引あり'],
+  '旭市',
+  3.7, 15
+),
+
+-- 7. 銚子市斎場（銚子市）
+(
+  '銚子市斎場',
+  'choshi-saijo',
+  'public_crematorium',
+  '銚子市が運営する公営斎場。太平洋を望む銚子の高台に位置し、火葬施設と告別式場を備えます。漁師町ならではの温かみある葬送の場を提供。',
+  '千葉県銚子市長塚町1-1',
+  'chiba', 'choshi',
+  35.7350, 140.8260,
+  '銚子駅',
+  15,
+  60, 1, true, 35,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 80000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 268000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 458000}]',
+  ARRAY['公営斎場', '火葬場併設', 'バリアフリー対応', '市民料金あり'],
+  '銚子市',
+  3.9, 28
+),
+
+-- 8. 山桑メモリアルホール（匝瑳市）
+(
+  '山桑メモリアルホール',
+  'yamaguwa-memorial-hall',
+  'public_crematorium',
+  '匝瑳市にある公営の総合葬祭施設。山桑地区の緑豊かな丘陵地に建ち、火葬から告別式まで一貫して対応可能。近隣市町からの利用も受け入れています。',
+  '千葉県匝瑳市山桑97',
+  'chiba', 'sosa',
+  35.7180, 140.5710,
+  '八日市場駅',
+  20,
+  60, 1, true, 30,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置室": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 73000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 245000}]',
+  ARRAY['公営斎場', '火葬場併設', '広域利用可'],
+  '匝瑳市',
+  3.7, 14
+),
+
+-- 9. 山武郡市広域斎場（東金市）
+(
+  '山武郡市広域斎場',
+  'sanbu-kouiki-saijo',
+  'public_crematorium',
+  '東金市に所在する山武郡市広域の公営火葬場。東金・山武・大網白里・九十九里町など周辺自治体の住民が利用。広い敷地に充実した設備を配置。',
+  '千葉県東金市家之子1005',
+  'chiba', 'togane',
+  35.5620, 140.3530,
+  '東金駅',
+  25,
+  80, 2, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "給湯室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 82000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 275000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 465000}]',
+  ARRAY['公営斎場', '火葬場併設', '広域利用可', 'バリアフリー対応', '駐車場完備'],
+  '山武郡市広域行政組合',
+  4.0, 35
+),
+
+-- 10. 長南聖苑（長南町）
+(
+  '長南聖苑',
+  'chonan-seien',
+  'public_crematorium',
+  '長生郡長南町の公営火葬施設。房総半島中央部の里山に囲まれた穏やかな環境。近隣町村と共同運営しており、地域に根差した葬送サービスを提供。',
+  '千葉県長生郡長南町長南1580',
+  'chiba', 'chonan',
+  35.3810, 140.2670,
+  '茂原駅',
+  30,
+  40, 1, true, 20,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置室": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 68000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 228000}]',
+  ARRAY['公営斎場', '火葬場併設', '広域利用可'],
+  '長南町',
+  3.6, 8
+),
+
+-- 11. 一宮聖苑（一宮町）
+(
+  '一宮聖苑',
+  'ichinomiya-seien',
+  'public_crematorium',
+  '長生郡一宮町の公営火葬場。サーフィンで有名な一宮海岸に近く、太平洋の潮風が届く環境に立地。地域の方々の大切な旅立ちの場として運営されています。',
+  '千葉県長生郡一宮町一宮3001',
+  'chiba', 'ichinomiya',
+  35.3680, 140.3720,
+  '上総一ノ宮駅',
+  15,
+  40, 1, true, 20,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置室": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 69000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 230000}]',
+  ARRAY['公営斎場', '火葬場併設'],
+  '一宮町',
+  3.5, 7
+),
+
+-- 12. かつうら聖苑（勝浦市）
+(
+  'かつうら聖苑',
+  'katsuura-seien',
+  'public_crematorium',
+  '勝浦市が管理する公営の火葬・葬祭施設。外房の温暖な気候に恵まれた丘の上に位置し、海と山の自然に包まれた静謐な空間で故人を送り出せます。',
+  '千葉県勝浦市沢倉168',
+  'chiba', 'katsuura',
+  35.1530, 140.3190,
+  '勝浦駅',
+  18,
+  50, 1, true, 25,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 75000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 248000}]',
+  ARRAY['公営斎場', '火葬場併設', 'バリアフリー対応'],
+  '勝浦市',
+  3.8, 16
+),
+
+-- 13. 大多喜斎場無相苑（大多喜町）
+(
+  '大多喜斎場無相苑',
+  'otaki-saijo-musouen',
+  'public_crematorium',
+  '夷隅郡大多喜町の公営火葬場。大多喜城下の歴史ある地域に佇み、養老渓谷にも近い自然に恵まれた環境。町民をはじめ近隣住民の葬送を支えています。',
+  '千葉県夷隅郡大多喜町大多喜486',
+  'chiba', 'otaki',
+  35.2850, 140.2440,
+  '大多喜駅',
+  12,
+  40, 1, true, 20,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置室": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 65000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 225000}]',
+  ARRAY['公営斎場', '火葬場併設', '歴史ある町の斎場'],
+  '大多喜町',
+  3.6, 9
+),
+
+-- 14. 大原聖苑（いすみ市）
+(
+  '大原聖苑',
+  'ohara-seien',
+  'public_crematorium',
+  'いすみ市が運営する公営斎場。太平洋を望む外房エリアに位置し、火葬炉と告別式場を完備。いすみ鉄道沿線の地域住民に幅広く利用されています。',
+  '千葉県いすみ市大原8513',
+  'chiba', 'isumi',
+  35.2510, 140.3860,
+  '大原駅',
+  14,
+  50, 1, true, 25,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 72000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 240000}]',
+  ARRAY['公営斎場', '火葬場併設', 'バリアフリー対応'],
+  'いすみ市',
+  3.8, 13
+),
+
+-- 15. 安房聖苑（南房総市）
+(
+  '安房聖苑',
+  'awa-seien',
+  'public_crematorium',
+  '南房総市にある安房地域の広域公営斎場。房総半島南部の温暖な気候のもと、海と花に囲まれた穏やかな環境。館山市など周辺自治体からも利用可能です。',
+  '千葉県南房総市谷向100',
+  'chiba', 'minamiboso',
+  35.0620, 139.9780,
+  '富浦駅',
+  20,
+  60, 1, true, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 78000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 258000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 448000}]',
+  ARRAY['公営斎場', '火葬場併設', 'バリアフリー対応', '広域利用可'],
+  '安房郡市広域市町村圏事務組合',
+  4.0, 30
+),
+
+-- 16. 長狭地区火葬場（鴨川市）
+(
+  '長狭地区火葬場',
+  'nagasa-chiku-kasoba',
+  'public_crematorium',
+  '鴨川市長狭地区の公営火葬場。鴨川シーワールドで知られる外房の鴨川に位置し、房総丘陵の緑に囲まれた簡素ながら清潔感のある施設です。',
+  '千葉県鴨川市成川580',
+  'chiba', 'kamogawa',
+  35.1280, 140.0710,
+  '安房鴨川駅',
+  25,
+  30, 1, true, 15,
+  '{"霊安室": false, "バリアフリー": false, "駐車場": true, "安置室": false, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 62000}]',
+  ARRAY['公営斎場', '火葬場併設'],
+  '鴨川市',
+  3.5, 6
+),
+
+-- 17. きみさらず聖苑（木更津市）
+(
+  'きみさらず聖苑',
+  'kimisarazu-seien',
+  'public_crematorium',
+  '木更津市の公営斎場。アクアラインで都心からのアクセスも良好なエリアに立地。最新の火葬設備と広い式場を備え、内房地域の葬儀需要に応えています。',
+  '千葉県木更津市潮浜1-17',
+  'chiba', 'kisarazu',
+  35.3750, 139.9310,
+  '木更津駅',
+  18,
+  80, 2, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true, "給湯室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 85000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 280000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 480000}]',
+  ARRAY['公営斎場', '火葬場併設', 'バリアフリー対応', '駐車場完備', 'アクアライン近接'],
+  '木更津市',
+  4.2, 48
+),
+
+-- 18. 上総聖苑（君津市）
+(
+  '上総聖苑',
+  'kazusa-seien',
+  'public_crematorium',
+  '君津市にある公営の広域斎場。君津・富津の住民が利用し、房総半島中部の丘陵地帯に位置。自然に調和した建物デザインが特徴の落ち着いた施設です。',
+  '千葉県君津市広岡961',
+  'chiba', 'kimitsu',
+  35.3280, 139.9680,
+  '君津駅',
+  20,
+  70, 2, true, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 80000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 265000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 455000}]',
+  ARRAY['公営斎場', '火葬場併設', 'バリアフリー対応', '広域利用可'],
+  '君津市',
+  4.0, 32
+),
+
+-- 19. いちはら聖苑（市原市）
+(
+  'いちはら聖苑',
+  'ichihara-seien',
+  'public_crematorium',
+  '市原市が運営する大規模公営斎場。千葉県最大の面積を持つ市原市の中心部に近く、火葬炉・式場・待合室を完備。市民の多様な葬儀ニーズに対応します。',
+  '千葉県市原市松崎101',
+  'chiba', 'ichihara',
+  35.4980, 140.1260,
+  '五井駅',
+  22,
+  100, 3, true, 60,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true, "給湯室": true, "多目的室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 88000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 288000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 498000}]',
+  ARRAY['公営斎場', '火葬場併設', 'バリアフリー対応', '駐車場完備', '大規模施設'],
+  '市原市',
+  4.3, 62
+),
+
+-- 20. 小さな森の家 柏（柏市）
+(
+  '小さな森の家 柏',
+  'chiisana-morinoie-kashiwa',
+  'private_hall',
+  '柏市にある家族葬専門の民営葬儀場。少人数でのアットホームな葬儀に特化し、木の温もりあふれる内装が特徴。故人との最後の時間を大切にできる空間です。',
+  '千葉県柏市柏6-8-20',
+  'chiba', 'kashiwa',
+  35.8640, 139.9750,
+  '柏駅',
+  8,
+  30, 1, false, 10,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "キッチン": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 110000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 348000}]',
+  ARRAY['家族葬専門', '少人数対応', '駅近', '温かみのある内装'],
+  '株式会社きずなホールディングス',
+  4.5, 78
+),
+
+-- 21. 小さな森の家 松戸（松戸市）
+(
+  '小さな森の家 松戸',
+  'chiisana-morinoie-matsudo',
+  'private_hall',
+  '松戸市の閑静な住宅街に佇む家族葬専門ホール。自然素材を活かした温かな空間で、少人数の心のこもった葬儀が可能。駅からのアクセスも良好です。',
+  '千葉県松戸市松戸1307-1',
+  'chiba', 'matsudo',
+  35.7870, 139.9010,
+  '松戸駅',
+  10,
+  30, 1, false, 8,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "キッチン": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 115000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 355000}]',
+  ARRAY['家族葬専門', '少人数対応', '駅近', '温かみのある内装'],
+  '株式会社きずなホールディングス',
+  4.4, 65
+),
+
+-- 22. 小さな森の家 船橋（船橋市）
+(
+  '小さな森の家 船橋',
+  'chiisana-morinoie-funabashi',
+  'private_hall',
+  '船橋市に位置する家族葬向け民営ホール。落ち着いた雰囲気の中で家族だけの時間を過ごせる設計。24時間対応のスタッフが丁寧にサポートいたします。',
+  '千葉県船橋市本町4-2-15',
+  'chiba', 'funabashi',
+  35.7010, 139.9830,
+  '船橋駅',
+  7,
+  30, 1, false, 8,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "キッチン": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 118000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 358000}]',
+  ARRAY['家族葬専門', '少人数対応', '駅近', '24時間対応'],
+  '株式会社きずなホールディングス',
+  4.5, 72
+),
+
+-- 23. エンディングハウス西船（船橋市）
+(
+  'エンディングハウス西船',
+  'ending-house-nishifuna',
+  'private_hall',
+  '船橋市西船エリアの民営葬儀場。JR西船橋駅から徒歩圏内の好立地で、家族葬から一般葬まで幅広く対応。モダンなデザインの清潔感ある施設です。',
+  '千葉県船橋市西船4-22-1',
+  'chiba', 'funabashi',
+  35.7170, 139.9570,
+  '西船橋駅',
+  6,
+  60, 2, false, 15,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 125000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 368000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 548000}]',
+  ARRAY['駅近', '家族葬対応', '一般葬対応', 'モダン設備'],
+  'エンディングハウス株式会社',
+  4.2, 45
+),
+
+-- 24. ライフケア千葉会堂（千葉市）
+(
+  'ライフケア千葉会堂',
+  'lifecare-chiba-kaido',
+  'private_hall',
+  '千葉市中央区にある民営の総合葬祭ホール。JR千葉駅からアクセスしやすく、少人数の家族葬から大規模な一般葬・社葬まで対応可能な多目的施設です。',
+  '千葉県千葉市中央区新千葉2-1-8',
+  'chiba', 'chiba-chuo',
+  35.6120, 140.1080,
+  '千葉駅',
+  8,
+  120, 3, false, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true, "多目的室": true, "給湯室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 128000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 378000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 598000}, {"type": "shaso", "label": "社葬プラン", "priceFrom": 980000}]',
+  ARRAY['大規模対応', '駅近', '社葬可', '家族葬対応', '多目的ホール'],
+  'ライフケア株式会社',
+  4.3, 85
+),
+
+-- 25. ライフケア増尾会堂（柏市）
+(
+  'ライフケア増尾会堂',
+  'lifecare-masuo-kaido',
+  'private_hall',
+  '柏市増尾エリアの民営葬儀場。住宅地に溶け込む落ち着いた外観で、家族葬に最適なサイズ感。経験豊富なスタッフが心を込めてお手伝いいたします。',
+  '千葉県柏市増尾3-1-12',
+  'chiba', 'kashiwa',
+  35.8420, 139.9630,
+  '増尾駅',
+  5,
+  50, 2, false, 15,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 120000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 358000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 528000}]',
+  ARRAY['家族葬対応', '駅近', '住宅街の静かな立地'],
+  'ライフケア株式会社',
+  4.1, 38
+),
+
+-- 26. 博全社 クリスタ五井（市原市）
+(
+  '博全社 クリスタ五井',
+  'hakuzensha-crysta-goi',
+  'private_hall',
+  '市原市五井にある博全社運営の民営葬儀ホール。JR五井駅に近い利便性の高い立地。ガラス張りの明るいエントランスが印象的で、温かみのある葬儀を演出します。',
+  '千葉県市原市五井中央東2-5-1',
+  'chiba', 'ichihara',
+  35.5100, 140.0890,
+  '五井駅',
+  7,
+  80, 2, false, 25,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true, "多目的室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 135000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 388000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 578000}]',
+  ARRAY['駅近', '家族葬対応', '一般葬対応', 'モダン設備', '地域密着'],
+  '株式会社博全社',
+  4.4, 58
+),
+
+-- 27. 家族葬のファミーユ千葉（千葉市）
+(
+  '家族葬のファミーユ千葉',
+  'famille-chiba',
+  'private_hall',
+  '千葉市にある家族葬専門チェーン「ファミーユ」の式場。全国展開のノウハウを活かし、明朗会計と丁寧なサービスを提供。お花に囲まれた温かな空間です。',
+  '千葉県千葉市中央区弁天1-15-3',
+  'chiba', 'chiba-chuo',
+  35.6150, 140.1150,
+  '千葉駅',
+  6,
+  40, 1, false, 12,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 108000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 338000}]',
+  ARRAY['家族葬専門', '明朗会計', '駅近', '全国チェーン'],
+  '株式会社家族葬のファミーユ',
+  4.3, 92
+),
+
+-- 28. 家族葬のファミーユ松戸（松戸市）
+(
+  '家族葬のファミーユ松戸',
+  'famille-matsudo',
+  'private_hall',
+  '松戸市の家族葬専門ホール。ファミーユブランドならではの統一された高品質サービス。事前相談から当日の進行まで専任スタッフが親身にサポートします。',
+  '千葉県松戸市根本473-1',
+  'chiba', 'matsudo',
+  35.7850, 139.9040,
+  '松戸駅',
+  9,
+  40, 1, false, 10,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 108000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 335000}]',
+  ARRAY['家族葬専門', '明朗会計', '駅近', '事前相談可'],
+  '株式会社家族葬のファミーユ',
+  4.2, 68
+),
+
+-- 29. セレモニーホール船橋（船橋市）
+(
+  'セレモニーホール船橋',
+  'ceremony-hall-funabashi',
+  'private_hall',
+  '船橋市の大通りに面した視認性の高い民営葬儀場。3つの式場を備え、家族葬から大規模葬まで同日に複数件の施行が可能。充実した設備と広い駐車場が魅力。',
+  '千葉県船橋市夏見台3-12-5',
+  'chiba', 'funabashi',
+  35.7120, 139.9920,
+  '塚田駅',
+  10,
+  100, 3, false, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true, "給湯室": true, "多目的室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 130000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 375000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 568000}]',
+  ARRAY['大規模対応', '家族葬対応', '駐車場完備', '複数式場'],
+  'セレモニーホール株式会社',
+  4.1, 55
+),
+
+-- 30. むすびすホール柏（柏市）
+(
+  'むすびすホール柏',
+  'musubisu-hall-kashiwa',
+  'private_hall',
+  '柏市にある「むすびす」ブランドの葬儀ホール。デザイン性の高い空間で故人らしい葬儀を演出。花祭壇のオーダーメイドにも対応し、個性豊かなお別れが可能です。',
+  '千葉県柏市末広町7-3',
+  'chiba', 'kashiwa',
+  35.8580, 139.9730,
+  '柏駅',
+  5,
+  50, 2, false, 12,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 140000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 398000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 598000}]',
+  ARRAY['デザイン性重視', '花祭壇オーダー可', '駅近', 'オリジナル葬儀'],
+  'むすびす株式会社',
+  4.6, 95
+),
+
+-- 31. さがみ典礼 柏ホール（柏市）
+(
+  'さがみ典礼 柏ホール',
+  'sagami-tenrei-kashiwa',
+  'private_hall',
+  '全国展開するさがみ典礼の柏拠点。長年の実績に基づく安定したサービスで、初めて喪主を務める方にも安心の手厚いサポートを提供しています。',
+  '千葉県柏市東上町1-28',
+  'chiba', 'kashiwa',
+  35.8610, 139.9780,
+  '柏駅',
+  10,
+  80, 2, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true, "給湯室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 125000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 368000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 558000}]',
+  ARRAY['全国チェーン', '実績豊富', '家族葬対応', '一般葬対応'],
+  '株式会社さがみ典礼',
+  4.0, 52
+),
+
+-- 32. さがみ典礼 千葉ホール（千葉市）
+(
+  'さがみ典礼 千葉ホール',
+  'sagami-tenrei-chiba',
+  'private_hall',
+  'さがみ典礼が千葉市内で運営する式場。JR千葉駅から程近いアクセス便利な立地。複数のプランから予算に応じて選べ、追加費用の心配がない明朗な料金体系。',
+  '千葉県千葉市中央区新町18-10',
+  'chiba', 'chiba-chuo',
+  35.6080, 140.1130,
+  '千葉駅',
+  10,
+  80, 2, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 128000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 375000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 565000}]',
+  ARRAY['全国チェーン', '明朗会計', '駅近', '事前相談可'],
+  '株式会社さがみ典礼',
+  4.1, 60
+),
+
+-- 33. メモリアルホール流山（流山市）
+(
+  'メモリアルホール流山',
+  'memorial-hall-nagareyama',
+  'private_hall',
+  '流山市の民営葬儀場。つくばエクスプレス沿線の発展著しいエリアに位置し、若い世代のニーズにも応える現代的な設備を完備。おおたかの森からも近い便利さ。',
+  '千葉県流山市西初石3-10-5',
+  'chiba', 'nagareyama',
+  35.8680, 139.9280,
+  '流山おおたかの森駅',
+  8,
+  70, 2, false, 25,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true, "キッチン": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 122000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 358000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 538000}]',
+  ARRAY['駅近', '現代的設備', '家族葬対応', '一般葬対応'],
+  'メモリアルホール株式会社',
+  4.3, 47
+),
+
+-- 34. 我孫子市斎場（我孫子市）
+(
+  '我孫子市斎場',
+  'abiko-saijo',
+  'public_crematorium',
+  '我孫子市が運営する公営斎場。手賀沼のほとりに広がる自然豊かな環境で、火葬設備と告別式場を併設。市民は低廉な使用料で利用でき、地域に親しまれています。',
+  '千葉県我孫子市岡発戸1377',
+  'chiba', 'abiko',
+  35.8780, 140.0350,
+  '我孫子駅',
+  18,
+  70, 2, true, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 82000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 270000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 460000}]',
+  ARRAY['公営斎場', '火葬場併設', 'バリアフリー対応', '市民料金あり', '手賀沼近接'],
+  '我孫子市',
+  4.1, 40
+),
+
+-- 35. 鎌ケ谷市斎場（鎌ケ谷市）
+(
+  '鎌ケ谷市斎場',
+  'kamagaya-saijo',
+  'public_crematorium',
+  '鎌ケ谷市の公営斎場。東武線・新京成線・北総線が交差する交通の要衝にあり、近隣市からのアクセスも良好。火葬と式場を兼ね備えたコンパクトな施設です。',
+  '千葉県鎌ケ谷市初富808-1',
+  'chiba', 'kamagaya',
+  35.7710, 140.0020,
+  '初富駅',
+  10,
+  60, 1, true, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 80000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 268000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 458000}]',
+  ARRAY['公営斎場', '火葬場併設', 'バリアフリー対応', '交通アクセス良好'],
+  '鎌ケ谷市',
+  4.0, 35
+),
+
+-- 36. ライフケア茂原会堂（茂原市）
+(
+  'ライフケア茂原会堂',
+  'lifecare-mobara-kaido',
+  'private_hall',
+  '茂原市にあるライフケアグループの民営葬儀ホール。外房エリアの拠点として家族葬から一般葬まで幅広く対応。地域に根ざした手厚いサービスが評判です。',
+  '千葉県茂原市千代田町1-8-7',
+  'chiba', 'mobara',
+  35.4280, 140.2870,
+  '茂原駅',
+  7,
+  60, 2, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 115000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 348000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 528000}]',
+  ARRAY['地域密着', '家族葬対応', '一般葬対応', '駅近'],
+  'ライフケア株式会社',
+  4.0, 33
+),
+
+-- 37. 佐倉セレモニーホール（佐倉市）
+(
+  '佐倉セレモニーホール',
+  'sakura-ceremony-hall',
+  'private_hall',
+  '佐倉市にある民営の葬儀ホール。城下町の趣を残す佐倉の地で、伝統と現代の調和した空間を提供。故人の人柄を反映したオーダーメイドの葬儀プランが好評です。',
+  '千葉県佐倉市鏑木町1-5-3',
+  'chiba', 'sakura',
+  35.7200, 140.2190,
+  '佐倉駅',
+  8,
+  70, 2, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "僧侶控室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 118000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 355000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 548000}]',
+  ARRAY['オーダーメイド対応', '駅近', '家族葬対応', '城下町の静かな環境'],
+  '佐倉セレモニー株式会社',
+  4.2, 41
+),
+
+-- 38. 小さな森の家 市川（市川市）
+(
+  '小さな森の家 市川',
+  'chiisana-morinoie-ichikawa',
+  'private_hall',
+  '市川市にある「小さな森の家」ブランドの家族葬専門ホール。都心へのアクセスも良い市川エリアで、自然の温もりに包まれた小規模な葬儀空間を実現しています。',
+  '千葉県市川市市川1-9-15',
+  'chiba', 'ichikawa',
+  35.7320, 139.9080,
+  '市川駅',
+  5,
+  30, 1, false, 8,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "キッチン": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 115000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 348000}]',
+  ARRAY['家族葬専門', '少人数対応', '駅近', '都心アクセス良好'],
+  '株式会社きずなホールディングス',
+  4.4, 70
+),
+
+-- 39. 小さな森の家 八千代（八千代市）
+(
+  '小さな森の家 八千代',
+  'chiisana-morinoie-yachiyo',
+  'private_hall',
+  '八千代市にある家族葬専門の式場。東葉高速鉄道沿線の新興住宅地に位置し、子育て世代が多いエリアならではの若い方にもなじみやすい現代的な雰囲気が特徴。',
+  '千葉県八千代市ゆりのき台3-2-8',
+  'chiba', 'yachiyo',
+  35.7330, 140.0920,
+  '八千代中央駅',
+  6,
+  30, 1, false, 10,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置室": true, "待合室": true, "キッチン": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 112000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 345000}]',
+  ARRAY['家族葬専門', '少人数対応', '駅近', '新興住宅地'],
+  '株式会社きずなホールディングス',
+  4.3, 50
+);
+
+
+-- =============================================
+-- 茨城県の追加斎場（20件）
+-- =============================================
+INSERT INTO venues (
+  name, slug, venue_type, description,
+  address, prefecture_slug, city_slug,
+  latitude, longitude,
+  nearest_station, walk_minutes,
+  capacity_max, hall_count, has_crematorium, parking_count,
+  facilities, plans, features,
+  operator_name, rating_avg, review_count
+) VALUES
+
+-- 1. 常陸海浜広域斎場（ひたちなか市）
+(
+  '常陸海浜広域斎場',
+  'hitachi-kaihin-kouiki-saijo',
+  'public_crematorium',
+  'ひたちなか市を中心とした広域組合運営の公営斎場。火葬場併設で通夜から告別式、火葬まで一貫して執り行える総合施設です。',
+  '茨城県ひたちなか市馬渡2975-5',
+  'ibaraki', 'hitachinaka',
+  36.4145, 140.5312,
+  '勝田駅',
+  25,
+  120, 3, true, 80,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 118000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 348000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 548000}]',
+  ARRAY['公営斎場', '火葬場併設', '駐車場完備', '広域利用可'],
+  'ひたちなか市外二市広域行政組合',
+  4.1, 32
+),
+
+-- 2. 那珂聖苑（那珂市）
+(
+  '那珂聖苑',
+  'naka-seien',
+  'public_crematorium',
+  '那珂市が運営する公営斎場。緑豊かな環境の中に位置し、火葬場を併設した落ち着いた雰囲気の施設です。地域住民に広く利用されています。',
+  '茨城県那珂市戸崎1177',
+  'ibaraki', 'naka',
+  36.4678, 140.4189,
+  '上菅谷駅',
+  20,
+  80, 2, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 108000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 328000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 498000}]',
+  ARRAY['公営斎場', '火葬場併設', '自然に囲まれた環境', '低価格'],
+  '那珂市',
+  3.9, 18
+),
+
+-- 3. 龍ケ崎市営斎場（龍ケ崎市）
+(
+  '龍ケ崎市営斎場',
+  'ryugasaki-shiei-saijo',
+  'public_crematorium',
+  '龍ケ崎市が管理運営する公営の斎場。市民は低価格で利用でき、火葬炉を複数備えた近代的な施設。バリアフリーにも対応しています。',
+  '茨城県龍ケ崎市板橋町440',
+  'ibaraki', 'ryugasaki',
+  35.9234, 140.1756,
+  '竜ヶ崎駅',
+  15,
+  100, 2, true, 60,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 112000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 338000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 528000}]',
+  ARRAY['公営斎場', '火葬場併設', 'バリアフリー対応', '市民割引あり'],
+  '龍ケ崎市',
+  4.0, 25
+),
+
+-- 4. 石岡地方斎場（石岡市）
+(
+  '石岡地方斎場',
+  'ishioka-chihou-saijo',
+  'public_crematorium',
+  '石岡市と周辺地域の住民が利用できる広域の公営斎場。火葬場併設で、通夜から葬儀、火葬まで一括して対応可能な施設です。',
+  '茨城県石岡市柿岡5528-5',
+  'ibaraki', 'ishioka',
+  36.2345, 140.1823,
+  '石岡駅',
+  30,
+  100, 2, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 105000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 318000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 488000}]',
+  ARRAY['公営斎場', '火葬場併設', '広域利用可', '駐車場完備'],
+  '石岡地方広域行政組合',
+  3.8, 15
+),
+
+-- 5. 常総市斎場（常総市）
+(
+  '常総市斎場',
+  'joso-saijo',
+  'public_crematorium',
+  '常総市運営の公営斎場。鬼怒川近くの静かな環境に位置し、火葬場を併設。市民は手頃な価格で利用でき、地域に密着した葬儀施設です。',
+  '茨城県常総市菅生町1030',
+  'ibaraki', 'joso',
+  36.0312, 139.9856,
+  '水海道駅',
+  20,
+  80, 2, true, 40,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 98000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 298000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 468000}]',
+  ARRAY['公営斎場', '火葬場併設', '低価格', '静かな環境'],
+  '常総市',
+  3.7, 12
+),
+
+-- 6. 常陸太田市営斎場（常陸太田市）
+(
+  '常陸太田市営斎場',
+  'hitachiota-shiei-saijo',
+  'public_crematorium',
+  '常陸太田市が運営する公営斎場。山間の自然豊かな場所に位置し、静かな環境で故人をお見送りできます。火葬場併設の総合施設です。',
+  '茨城県常陸太田市増井町1900',
+  'ibaraki', 'hitachiota',
+  36.5312, 140.5134,
+  '常陸太田駅',
+  15,
+  80, 2, true, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 105000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 308000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 478000}]',
+  ARRAY['公営斎場', '火葬場併設', '自然に囲まれた環境', 'バリアフリー対応'],
+  '常陸太田市',
+  3.8, 14
+),
+
+-- 7. 坂東市営斎場（坂東市）
+(
+  '坂東市営斎場',
+  'bando-shiei-saijo',
+  'public_crematorium',
+  '坂東市が管理する公営の火葬場併設斎場。関東平野の穏やかな環境に位置し、市民に低価格で葬儀サービスを提供しています。',
+  '茨城県坂東市みむら1026',
+  'ibaraki', 'bando',
+  36.0478, 139.8823,
+  '愛宕駅',
+  35,
+  60, 1, true, 30,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 95000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 288000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 458000}]',
+  ARRAY['公営斎場', '火葬場併設', '低価格', '市民割引あり'],
+  '坂東市',
+  3.6, 8
+),
+
+-- 8. 筑西広域斎場（筑西市）
+(
+  '筑西広域斎場',
+  'chikusei-kouiki-saijo',
+  'public_crematorium',
+  '筑西市を中心とした広域組合運営の公営斎場。複数の自治体住民が利用可能で、近代的な設備と広い駐車場を備えた総合葬儀施設です。',
+  '茨城県筑西市門井1778-1',
+  'ibaraki', 'chikusei',
+  36.2834, 139.9645,
+  '下館駅',
+  25,
+  100, 2, true, 60,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 108000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 328000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 508000}]',
+  ARRAY['公営斎場', '火葬場併設', '広域利用可', '駐車場完備'],
+  '筑西広域市町村圏事務組合',
+  4.0, 20
+),
+
+-- 9. 鹿嶋市斎場（鹿嶋市）
+(
+  '鹿嶋市斎場',
+  'kashima-saijo',
+  'public_crematorium',
+  '鹿嶋市が運営する公営斎場。鹿島灘に近い穏やかな環境に位置し、火葬場を併設。市民は低価格で利用でき、清潔感のある施設です。',
+  '茨城県鹿嶋市大字荒野字原1643',
+  'ibaraki', 'kashima',
+  35.9712, 140.6234,
+  '鹿島神宮駅',
+  20,
+  80, 2, true, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 105000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 318000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 498000}]',
+  ARRAY['公営斎場', '火葬場併設', 'バリアフリー対応', '清潔感のある施設'],
+  '鹿嶋市',
+  3.9, 16
+),
+
+-- 10. 古河市斎場（古河市）
+(
+  '古河市斎場',
+  'koga-saijo',
+  'public_crematorium',
+  '古河市運営の公営斎場。県西部の交通アクセスの良い場所に立地し、火葬場を併設。広い式場と充実した設備が整った総合葬儀施設です。',
+  '茨城県古河市下大野2530',
+  'ibaraki', 'koga',
+  36.1567, 139.7534,
+  '古河駅',
+  20,
+  120, 2, true, 70,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 110000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 338000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 528000}]',
+  ARRAY['公営斎場', '火葬場併設', '仮眠室完備', '広い式場'],
+  '古河市',
+  4.2, 28
+),
+
+-- 11. 結城市斎場（結城市）
+(
+  '結城市斎場',
+  'yuki-saijo',
+  'public_crematorium',
+  '結城市が運営する地域密着型の公営斎場。コンパクトな施設ながら火葬場を併設し、市民が手頃な価格で利用できる葬儀施設です。',
+  '茨城県結城市大字結城6940',
+  'ibaraki', 'yuki',
+  36.2312, 139.8567,
+  '結城駅',
+  15,
+  60, 1, true, 30,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 95000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 278000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 448000}]',
+  ARRAY['公営斎場', '火葬場併設', '低価格', '地域密着'],
+  '結城市',
+  3.7, 10
+),
+
+-- 12. 笠間市斎場（笠間市）
+(
+  '笠間市斎場',
+  'kasama-saijo',
+  'public_crematorium',
+  '笠間市が管理運営する公営斎場。笠間焼の里として知られる地域にあり、自然に囲まれた静かな環境で故人を見送ることができます。',
+  '茨城県笠間市箱田867-1',
+  'ibaraki', 'kasama',
+  36.3534, 140.2178,
+  '笠間駅',
+  20,
+  80, 2, true, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 100000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 308000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 478000}]',
+  ARRAY['公営斎場', '火葬場併設', '自然に囲まれた環境', 'バリアフリー対応'],
+  '笠間市',
+  3.8, 13
+),
+
+-- 13. 堀斎場（水戸市）
+(
+  '堀斎場',
+  'hori-saijo-mito',
+  'private_funeral_home',
+  '水戸市で長年の実績を持つ老舗の民営葬儀場。家族葬から一般葬まで幅広く対応し、きめ細やかなサービスで地域の信頼を集めています。',
+  '茨城県水戸市堀町1175-2',
+  'ibaraki', 'mito',
+  36.3756, 140.4623,
+  '水戸駅',
+  15,
+  150, 3, false, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 148000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 398000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 648000}]',
+  ARRAY['老舗葬儀社', '家族葬対応', '仮眠室完備', '駐車場完備'],
+  '株式会社堀斎場',
+  4.3, 45
+),
+
+-- 14. セレモニア富士水戸駅南館（水戸市）
+(
+  'セレモニア富士水戸駅南館',
+  'ceremonia-fuji-mito-ekinan',
+  'private_funeral_home',
+  '水戸駅南口から徒歩圏内の好立地にある民営葬儀場。モダンな内装と充実した設備で、家族葬を中心にきめ細やかな対応を行っています。',
+  '茨城県水戸市桜川2-1-15',
+  'ibaraki', 'mito',
+  36.3678, 140.4734,
+  '水戸駅',
+  8,
+  80, 2, false, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 138000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 368000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 598000}]',
+  ARRAY['駅近', '家族葬専門', 'モダンな内装', '付添安置可'],
+  'セレモニア富士株式会社',
+  4.2, 38
+),
+
+-- 15. セレモニア富士勝田稲田館（ひたちなか市）
+(
+  'セレモニア富士勝田稲田館',
+  'ceremonia-fuji-katsuta-inada',
+  'private_funeral_home',
+  'ひたちなか市の閑静な住宅街に位置する家族葬向け葬儀場。温かみのある空間で少人数の葬儀に最適。経験豊富なスタッフが対応します。',
+  '茨城県ひたちなか市稲田1-5-10',
+  'ibaraki', 'hitachinaka',
+  36.3978, 140.5423,
+  '勝田駅',
+  10,
+  60, 2, false, 25,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 128000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 348000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 568000}]',
+  ARRAY['家族葬向け', '駅近', '少人数対応', '経験豊富なスタッフ'],
+  'セレモニア富士株式会社',
+  4.1, 29
+),
+
+-- 16. セレモニア富士日立サンプラザ（日立市）
+(
+  'セレモニア富士日立サンプラザ',
+  'ceremonia-fuji-hitachi-sunplaza',
+  'private_funeral_home',
+  '日立市の中心部にある大型の民営葬儀場。複数のホールを備え、少人数の家族葬から大規模な社葬まで幅広いニーズに対応できます。',
+  '茨城県日立市幸町1-20-1',
+  'ibaraki', 'hitachi',
+  36.5989, 140.6512,
+  '日立駅',
+  10,
+  200, 4, false, 60,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 145000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 378000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 628000}, {"type": "shaso", "label": "社葬プラン", "priceFrom": 1280000}]',
+  ARRAY['大型施設', '複数ホール', '社葬対応', '駅近'],
+  'セレモニア富士株式会社',
+  4.4, 52
+),
+
+-- 17. 家族葬のファミラル龍ケ崎（龍ケ崎市）
+(
+  '家族葬のファミラル龍ケ崎',
+  'familar-ryugasaki',
+  'private_funeral_home',
+  '龍ケ崎市にある家族葬専門の小規模葬儀場。少人数でのお別れに特化した温かみのある空間で、負担の少ない葬儀を提案しています。',
+  '茨城県龍ケ崎市中里2-1-3',
+  'ibaraki', 'ryugasaki',
+  35.9178, 140.1834,
+  '竜ヶ崎駅',
+  12,
+  40, 1, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 98000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 298000}]',
+  ARRAY['家族葬専門', '少人数対応', '低価格', 'アットホーム'],
+  '株式会社ファミラル',
+  4.3, 34
+),
+
+-- 18. 家族葬のファミラル潮来（潮来市）
+(
+  '家族葬のファミラル潮来',
+  'familar-itako',
+  'private_funeral_home',
+  '潮来市にある家族葬専門の葬儀場。水郷の町にふさわしい落ち着いた空間で、故人との最期の時間を大切にした葬儀を提供しています。',
+  '茨城県潮来市辻765-1',
+  'ibaraki', 'itako',
+  35.9456, 140.5567,
+  '潮来駅',
+  10,
+  40, 1, false, 15,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 95000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 288000}]',
+  ARRAY['家族葬専門', '少人数対応', '駅近', '落ち着いた空間'],
+  '株式会社ファミラル',
+  4.1, 21
+),
+
+-- 19. 牛久セレモニーホール（牛久市）
+(
+  '牛久セレモニーホール',
+  'ushiku-ceremony-hall',
+  'private_funeral_home',
+  '牛久市にある地域密着型の民営葬儀場。牛久大仏に程近い閑静なエリアに位置し、家族葬から一般葬まで柔軟に対応できる施設です。',
+  '茨城県牛久市田宮3-25-8',
+  'ibaraki', 'ushiku',
+  35.9834, 140.1478,
+  '牛久駅',
+  12,
+  100, 2, false, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 128000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 348000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 578000}]',
+  ARRAY['地域密着', '家族葬対応', '仮眠室完備', '柔軟な対応'],
+  '牛久セレモニー株式会社',
+  4.0, 27
+),
+
+-- 20. 小さな森の家つくば大穂（つくば市）
+(
+  '小さな森の家つくば大穂',
+  'chiisana-mori-tsukuba-oho',
+  'private_funeral_home',
+  'つくば市大穂エリアにある家族葬専門の小規模葬儀場。木のぬくもりを感じるナチュラルな空間で、家族だけの温かいお別れを演出します。',
+  '茨城県つくば市大穂1502-3',
+  'ibaraki', 'tsukuba',
+  36.1234, 140.0912,
+  'つくば駅',
+  30,
+  30, 1, false, 15,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 89000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 268000}]',
+  ARRAY['家族葬専門', '小規模', '木のぬくもり', '低価格'],
+  '株式会社花葬',
+  4.4, 41
+),
+
+-- 21. 小さな森の家取手米ノ井（取手市）
+(
+  '小さな森の家取手米ノ井',
+  'chiisana-mori-toride-komenoi',
+  'private_funeral_home',
+  '取手市米ノ井にある家族葬に特化した小規模葬儀場。自然素材を活かした温かい空間で、故人と家族だけの穏やかな時間を過ごせます。',
+  '茨城県取手市米ノ井258-1',
+  'ibaraki', 'toride',
+  35.9345, 140.0623,
+  '取手駅',
+  18,
+  30, 1, false, 12,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 89000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 258000}]',
+  ARRAY['家族葬専門', '小規模', '自然素材の空間', 'アットホーム'],
+  '株式会社花葬',
+  4.3, 36
+),
+
+-- 22. さがみ典礼結城ホール（結城市）
+(
+  'さがみ典礼結城ホール',
+  'sagami-tenrei-yuki',
+  'private_funeral_home',
+  '全国展開のさがみ典礼が運営する結城市の葬儀場。安心の明朗会計と丁寧な対応が特徴で、家族葬から一般葬まで幅広く対応しています。',
+  '茨城県結城市結城7155-3',
+  'ibaraki', 'yuki',
+  36.2389, 139.8734,
+  '結城駅',
+  10,
+  100, 2, false, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 138000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 368000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 598000}]',
+  ARRAY['全国チェーン', '明朗会計', '家族葬対応', '駅近'],
+  'さがみ典礼',
+  4.0, 30
+),
+
+-- 23. さがみ典礼神栖ホール（神栖市）
+(
+  'さがみ典礼神栖ホール',
+  'sagami-tenrei-kamisu',
+  'private_funeral_home',
+  '神栖市にあるさがみ典礼の葬儀場。鹿島臨海工業地帯に近い立地で、地域の企業関係の葬儀にも対応。充実した設備と丁寧な接客が好評です。',
+  '茨城県神栖市知手中央3-8-7',
+  'ibaraki', 'kamisu',
+  35.8912, 140.6678,
+  '鹿島神宮駅',
+  30,
+  120, 2, false, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 135000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 358000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 588000}]',
+  ARRAY['全国チェーン', '駐車場完備', '充実した設備', '企業葬対応'],
+  'さがみ典礼',
+  3.9, 22
+),
+
+-- 24. さがみ典礼石岡ホール（石岡市）
+(
+  'さがみ典礼石岡ホール',
+  'sagami-tenrei-ishioka',
+  'private_funeral_home',
+  '石岡市の中心部に位置するさがみ典礼の葬儀場。清潔感のある館内と、経験豊富なスタッフによる手厚いサポートが特徴の施設です。',
+  '茨城県石岡市国府5-2-18',
+  'ibaraki', 'ishioka',
+  36.1912, 140.2734,
+  '石岡駅',
+  8,
+  80, 2, false, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 132000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 348000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 578000}]',
+  ARRAY['全国チェーン', '駅近', '清潔感のある施設', '手厚いサポート'],
+  'さがみ典礼',
+  4.1, 26
+),
+
+-- 25. ライフケア石岡会堂（石岡市）
+(
+  'ライフケア石岡会堂',
+  'lifecare-ishioka-kaido',
+  'private_funeral_home',
+  '石岡市にある地元密着型の葬儀場。アットホームな雰囲気が特徴で、ご遺族の気持ちに寄り添った丁寧なサービスを提供しています。',
+  '茨城県石岡市府中1-3-20',
+  'ibaraki', 'ishioka',
+  36.1945, 140.2812,
+  '石岡駅',
+  10,
+  60, 1, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 118000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 328000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 538000}]',
+  ARRAY['地域密着', 'アットホーム', '丁寧な対応', '家族葬対応'],
+  '株式会社ライフケア',
+  4.0, 19
+),
+
+-- 26. ライフケア土浦会堂（土浦市）
+(
+  'ライフケア土浦会堂',
+  'lifecare-tsuchiura-kaido',
+  'private_funeral_home',
+  '土浦市にあるライフケアの葬儀場。霞ヶ浦に近い閑静な環境で、家族葬から一般葬まで幅広く対応。温かみのあるサービスが評判です。',
+  '茨城県土浦市桜町2-5-12',
+  'ibaraki', 'tsuchiura',
+  36.0812, 140.2034,
+  '土浦駅',
+  10,
+  80, 2, false, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 125000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 338000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 558000}]',
+  ARRAY['駅近', '家族葬対応', '仮眠室完備', '温かみのあるサービス'],
+  '株式会社ライフケア',
+  4.2, 33
+);
+
+-- =============================================
+-- 栃木県の追加斎場（20件）
+-- =============================================
+INSERT INTO venues (
+  name, slug, venue_type, description,
+  address, prefecture_slug, city_slug,
+  latitude, longitude,
+  nearest_station, walk_minutes,
+  capacity_max, hall_count, has_crematorium, parking_count,
+  facilities, plans, features,
+  operator_name, rating_avg, review_count
+) VALUES
+
+-- 1. 鹿沼市斎場（鹿沼市）
+(
+  '鹿沼市斎場',
+  'kanuma-saijo',
+  'public_crematorium',
+  '鹿沼市が運営する公営斎場。日光連山を望む静かな環境に位置し、火葬場を併設。市民は低廉な使用料で利用できる総合葬儀施設です。',
+  '栃木県鹿沼市上殿町695',
+  'tochigi', 'kanuma',
+  36.5678, 139.7234,
+  '鹿沼駅',
+  20,
+  100, 2, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 108000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 318000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 498000}]',
+  ARRAY['公営斎場', '火葬場併設', '日光連山の眺望', '低価格'],
+  '鹿沼市',
+  4.0, 22
+),
+
+-- 2. 芳賀地区広域斎場（真岡市）
+(
+  '芳賀地区広域斎場',
+  'haga-chiku-kouiki-saijo',
+  'public_crematorium',
+  '真岡市を中心とした芳賀地区の広域組合が運営する公営斎場。近代的な設備を備え、火葬場併設で通夜から火葬まで一貫して対応できます。',
+  '栃木県真岡市長田1100',
+  'tochigi', 'moka',
+  36.4412, 140.0134,
+  '真岡駅',
+  25,
+  120, 3, true, 70,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 110000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 328000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 518000}]',
+  ARRAY['公営斎場', '火葬場併設', '広域利用可', '近代的な設備'],
+  '芳賀地区広域行政事務組合',
+  4.1, 28
+),
+
+-- 3. しおや聖苑（塩谷町）
+(
+  'しおや聖苑',
+  'shioya-seien',
+  'public_crematorium',
+  '塩谷町にある公営の斎場。高原山麓の豊かな自然に囲まれた静寂な環境で、心穏やかに故人を見送ることができる火葬場併設の施設です。',
+  '栃木県塩谷郡塩谷町大字船生3596',
+  'tochigi', 'shioya',
+  36.7234, 139.8312,
+  '矢板駅',
+  35,
+  60, 1, true, 30,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 95000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 278000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 448000}]',
+  ARRAY['公営斎場', '火葬場併設', '自然に囲まれた環境', '静寂な空間'],
+  '塩谷広域行政組合',
+  3.7, 9
+),
+
+-- 4. 日光聖苑（日光市）
+(
+  '日光聖苑',
+  'nikko-seien',
+  'public_crematorium',
+  '世界遺産の地・日光市にある公営の斎場。歴史ある町にふさわしい荘厳な雰囲気を持ち、火葬場を併設した総合施設として地域に貢献しています。',
+  '栃木県日光市森友1207',
+  'tochigi', 'nikko',
+  36.7312, 139.6878,
+  '下今市駅',
+  15,
+  80, 2, true, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 100000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 298000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 478000}]',
+  ARRAY['公営斎場', '火葬場併設', '荘厳な雰囲気', '歴史ある地域'],
+  '日光市',
+  3.9, 17
+),
+
+-- 5. 栃木市斎場（栃木市）
+(
+  '栃木市斎場',
+  'tochigi-shi-saijo',
+  'public_crematorium',
+  '栃木市が運営する公営斎場。蔵の街として知られる栃木市の郊外に位置し、火葬場併設で市民に広く利用されている葬儀施設です。',
+  '栃木県栃木市大光寺町2076',
+  'tochigi', 'tochigi-city',
+  36.3812, 139.7134,
+  '栃木駅',
+  20,
+  100, 2, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 105000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 308000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 488000}]',
+  ARRAY['公営斎場', '火葬場併設', '駐車場完備', '市民割引あり'],
+  '栃木市',
+  4.0, 24
+),
+
+-- 6. 佐野市斎場（佐野市）
+(
+  '佐野市斎場',
+  'sano-saijo',
+  'public_crematorium',
+  '佐野市が管理する公営斎場。佐野プレミアム・アウトレットで有名な街の郊外に位置し、火葬場併設で手頃な価格の葬儀が可能です。',
+  '栃木県佐野市犬伏下町1915',
+  'tochigi', 'sano',
+  36.3078, 139.5812,
+  '佐野駅',
+  18,
+  100, 2, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 105000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 308000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 488000}]',
+  ARRAY['公営斎場', '火葬場併設', '低価格', 'バリアフリー対応'],
+  '佐野市',
+  3.9, 19
+),
+
+-- 7. 大田原市斎場（大田原市）
+(
+  '大田原市斎場',
+  'otawara-saijo',
+  'public_crematorium',
+  '大田原市が運営する公営斎場。那須野が原の広大な自然に囲まれた静かな環境で、火葬場を併設した地域に根ざした葬儀施設です。',
+  '栃木県大田原市実取805',
+  'tochigi', 'otawara',
+  36.8712, 140.0134,
+  '西那須野駅',
+  25,
+  80, 2, true, 40,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 100000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 298000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 468000}]',
+  ARRAY['公営斎場', '火葬場併設', '自然に囲まれた環境', '低価格'],
+  '大田原市',
+  3.8, 14
+),
+
+-- 8. 矢板市斎場（矢板市）
+(
+  '矢板市斎場',
+  'yaita-saijo',
+  'public_crematorium',
+  '矢板市が管理する公営斎場。高原山の麓に位置する自然豊かな環境で、火葬場を併設したコンパクトながら清潔感のある施設です。',
+  '栃木県矢板市長井1193',
+  'tochigi', 'yaita',
+  36.7634, 139.9178,
+  '矢板駅',
+  15,
+  60, 1, true, 30,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 95000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 278000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 448000}]',
+  ARRAY['公営斎場', '火葬場併設', '清潔感のある施設', 'コンパクト'],
+  '矢板市',
+  3.7, 11
+),
+
+-- 9. 真岡市斎場（真岡市）
+(
+  '真岡市斎場',
+  'moka-saijo',
+  'public_crematorium',
+  '真岡市が運営する公営斎場。SLもおかで有名な街にあり、火葬場を併設。市民に寄り添った低価格の葬儀サービスを提供しています。',
+  '栃木県真岡市熊倉1-14-1',
+  'tochigi', 'moka',
+  36.4378, 140.0012,
+  '真岡駅',
+  12,
+  80, 2, true, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 100000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 298000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 468000}]',
+  ARRAY['公営斎場', '火葬場併設', '駅近', '低価格'],
+  '真岡市',
+  3.9, 16
+),
+
+-- 10. さがみ典礼下野祇園（下野市）
+(
+  'さがみ典礼下野祇園',
+  'sagami-tenrei-shimotsuke-gion',
+  'private_funeral_home',
+  '下野市にあるさがみ典礼の葬儀場。JR宇都宮線沿線の好アクセスに位置し、明朗会計と丁寧なサービスで地域に信頼されています。',
+  '栃木県下野市祇園1-5-3',
+  'tochigi', 'shimotsuke',
+  36.3834, 139.8412,
+  '自治医大駅',
+  8,
+  80, 2, false, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 135000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 358000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 588000}]',
+  ARRAY['全国チェーン', '駅近', '明朗会計', '仮眠室完備'],
+  'さがみ典礼',
+  4.1, 31
+),
+
+-- 11. さがみ典礼真岡並木町（真岡市）
+(
+  'さがみ典礼真岡並木町',
+  'sagami-tenrei-moka-namiki',
+  'private_funeral_home',
+  '真岡市並木町にあるさがみ典礼の葬儀場。落ち着いた住宅街に位置し、少人数の家族葬から一般葬まで、きめ細やかなサポートを提供します。',
+  '栃木県真岡市並木町2-15-8',
+  'tochigi', 'moka',
+  36.4423, 140.0089,
+  '真岡駅',
+  10,
+  80, 2, false, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 132000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 348000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 568000}]',
+  ARRAY['全国チェーン', '閑静な住宅街', '家族葬対応', '丁寧な対応'],
+  'さがみ典礼',
+  4.0, 25
+),
+
+-- 12. さがみ典礼西那須野（那須塩原市）
+(
+  'さがみ典礼西那須野',
+  'sagami-tenrei-nishi-nasuno',
+  'private_funeral_home',
+  '那須塩原市の西那須野エリアにあるさがみ典礼の葬儀場。那須高原への玄関口に位置し、広い駐車場と充実した設備が特徴です。',
+  '栃木県那須塩原市西朝日町16-3',
+  'tochigi', 'nasushiobara',
+  36.8712, 139.9623,
+  '西那須野駅',
+  8,
+  100, 2, false, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 138000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 368000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 598000}]',
+  ARRAY['全国チェーン', '駅近', '駐車場完備', '充実した設備'],
+  'さがみ典礼',
+  4.2, 35
+),
+
+-- 13. さがみ典礼足利（足利市）
+(
+  'さがみ典礼足利',
+  'sagami-tenrei-ashikaga',
+  'private_funeral_home',
+  '足利市にあるさがみ典礼の葬儀場。足利学校で有名な歴史の街で、伝統を大切にしながらも現代的なサービスを提供する葬儀施設です。',
+  '栃木県足利市朝倉町2-7-15',
+  'tochigi', 'ashikaga',
+  36.3412, 139.4534,
+  '足利駅',
+  10,
+  100, 2, false, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 135000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 358000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 588000}]',
+  ARRAY['全国チェーン', '駅近', '歴史ある街', '仮眠室完備'],
+  'さがみ典礼',
+  4.0, 27
+),
+
+-- 14. さがみ典礼小山城北（小山市）
+(
+  'さがみ典礼小山城北',
+  'sagami-tenrei-oyama-johoku',
+  'private_funeral_home',
+  '小山市の城北エリアにあるさがみ典礼の葬儀場。JR小山駅からのアクセスも良く、家族葬から大規模葬まで柔軟に対応できる施設です。',
+  '栃木県小山市城北3-12-5',
+  'tochigi', 'oyama',
+  36.3234, 139.8023,
+  '小山駅',
+  12,
+  120, 3, false, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 138000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 368000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 608000}]',
+  ARRAY['全国チェーン', '複数ホール', '駅近', '大規模葬対応'],
+  'さがみ典礼',
+  4.1, 33
+),
+
+-- 15. さがみ典礼高根沢（高根沢町）
+(
+  'さがみ典礼高根沢',
+  'sagami-tenrei-takanesawa',
+  'private_funeral_home',
+  '高根沢町にあるさがみ典礼の葬儀場。宇都宮市のベッドタウンとして発展する地域に位置し、アクセスの良さときめ細やかな対応が好評です。',
+  '栃木県塩谷郡高根沢町宝石台3-8-1',
+  'tochigi', 'takanesawa',
+  36.5812, 139.8912,
+  '宝積寺駅',
+  10,
+  80, 2, false, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 128000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 338000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 558000}]',
+  ARRAY['全国チェーン', '駅近', 'アクセス良好', '丁寧な対応'],
+  'さがみ典礼',
+  3.9, 20
+),
+
+-- 16. 家族葬のタクセル末広（大田原市）
+(
+  '家族葬のタクセル末広',
+  'taxel-suehiro-otawara',
+  'private_funeral_home',
+  '大田原市末広にある家族葬専門の葬儀場。少人数でのお別れに最適な温かい空間で、ご遺族の負担を最小限に抑えた葬儀プランを提案します。',
+  '栃木県大田原市末広3-2978-1',
+  'tochigi', 'otawara',
+  36.8678, 140.0212,
+  '西那須野駅',
+  20,
+  40, 1, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 95000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 278000}]',
+  ARRAY['家族葬専門', '少人数対応', '低価格', '負担を軽減'],
+  '株式会社タクセル',
+  4.3, 38
+),
+
+-- 17. 家族葬のタクセル新町（宇都宮市）
+(
+  '家族葬のタクセル新町',
+  'taxel-shinmachi-utsunomiya',
+  'private_funeral_home',
+  '宇都宮市新町にあるタクセルの家族葬ホール。餃子の街・宇都宮の市街地に位置し、少人数での温かいお別れを実現する専門施設です。',
+  '栃木県宇都宮市新町1-3-15',
+  'tochigi', 'utsunomiya',
+  36.5589, 139.8812,
+  '宇都宮駅',
+  12,
+  40, 1, false, 15,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 98000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 288000}]',
+  ARRAY['家族葬専門', '駅近', '少人数対応', 'アットホーム'],
+  '株式会社タクセル',
+  4.4, 42
+),
+
+-- 18. 家族葬のタクセル下岡本町（宇都宮市）
+(
+  '家族葬のタクセル下岡本町',
+  'taxel-shimo-okamoto-utsunomiya',
+  'private_funeral_home',
+  '宇都宮市下岡本町にあるタクセルの家族葬ホール。郊外の落ち着いた環境で、故人と家族だけのプライベートなお別れ空間を提供しています。',
+  '栃木県宇都宮市下岡本町4090-5',
+  'tochigi', 'utsunomiya',
+  36.5934, 139.9212,
+  '岡本駅',
+  8,
+  40, 1, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 98000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 288000}]',
+  ARRAY['家族葬専門', '駅近', 'プライベート空間', '落ち着いた環境'],
+  '株式会社タクセル',
+  4.2, 35
+),
+
+-- 19. セレモニーホールはまつ斎苑（宇都宮市）
+(
+  'セレモニーホールはまつ斎苑',
+  'hamatsu-saien-utsunomiya',
+  'private_funeral_home',
+  '宇都宮市にある地元で長年実績のある民営葬儀場。大小複数のホールを備え、家族葬から社葬まで幅広い規模の葬儀に対応できます。',
+  '栃木県宇都宮市浜田町5-20',
+  'tochigi', 'utsunomiya',
+  36.5534, 139.8623,
+  '宇都宮駅',
+  15,
+  200, 4, false, 80,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 148000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 398000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 648000}, {"type": "shaso", "label": "社葬プラン", "priceFrom": 1380000}]',
+  ARRAY['老舗葬儀社', '複数ホール', '社葬対応', '駐車場完備'],
+  '株式会社はまつ',
+  4.3, 55
+),
+
+-- 20. とわノイエさくら想（宇都宮市）
+(
+  'とわノイエさくら想',
+  'towa-noie-sakuraso-utsunomiya',
+  'private_funeral_home',
+  '宇都宮市にある新しいコンセプトの家族葬専門施設。桜をモチーフにした温かみのある空間で、故人を偲ぶ心に寄り添った葬儀を提供します。',
+  '栃木県宇都宮市桜5-1-23',
+  'tochigi', 'utsunomiya',
+  36.5412, 139.8534,
+  '宇都宮駅',
+  18,
+  50, 2, false, 20,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 108000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 318000}]',
+  ARRAY['家族葬専門', 'デザイナーズ空間', '温かい雰囲気', '新しいコンセプト'],
+  'とわノイエ株式会社',
+  4.5, 48
+),
+
+-- 21. 駒生市民ホール（宇都宮市）
+(
+  '駒生市民ホール',
+  'komayu-shimin-hall-utsunomiya',
+  'private_funeral_home',
+  '宇都宮市駒生にある地域密着型の葬儀場。市民に親しまれる存在として、リーズナブルな価格設定と温かいおもてなしで葬儀を支えます。',
+  '栃木県宇都宮市駒生2-28-10',
+  'tochigi', 'utsunomiya',
+  36.5712, 139.8345,
+  '宇都宮駅',
+  25,
+  80, 2, false, 30,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 118000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 328000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 538000}]',
+  ARRAY['地域密着', 'リーズナブル', '家族葬対応', '温かいおもてなし'],
+  '駒生市民ホール運営委員会',
+  4.0, 23
+),
+
+-- 22. 博善社小金井ホール（下野市）
+(
+  '博善社小金井ホール',
+  'hakuzensha-koganei-hall',
+  'private_funeral_home',
+  '下野市小金井にある博善社の葬儀場。JR小金井駅から近い好立地で、家族葬から一般葬まで幅広く対応。清潔感のある施設が特徴です。',
+  '栃木県下野市小金井1-28-6',
+  'tochigi', 'shimotsuke',
+  36.3712, 139.8534,
+  '小金井駅',
+  5,
+  100, 2, false, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 128000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 348000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 578000}]',
+  ARRAY['駅近', '清潔感のある施設', '仮眠室完備', '家族葬対応'],
+  '株式会社博善社',
+  4.2, 30
+);
+
+-- =============================================
+-- 群馬県の追加斎場（20件）
+-- =============================================
+INSERT INTO venues (
+  name, slug, venue_type, description,
+  address, prefecture_slug, city_slug,
+  latitude, longitude,
+  nearest_station, walk_minutes,
+  capacity_max, hall_count, has_crematorium, parking_count,
+  facilities, plans, features,
+  operator_name, rating_avg, review_count
+) VALUES
+
+-- 1. 渋川広域斎場しらゆり聖苑（渋川市）
+(
+  '渋川広域斎場しらゆり聖苑',
+  'shibukawa-shirayuri-seien',
+  'public_crematorium',
+  '渋川市を中心とした広域組合運営の公営斎場。伊香保温泉で有名な地域にあり、火葬場併設で通夜から火葬まで一貫して対応できる施設です。',
+  '群馬県渋川市北橘町八崎2031-1',
+  'gunma', 'shibukawa',
+  36.5234, 139.0134,
+  '渋川駅',
+  20,
+  120, 3, true, 70,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 110000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 328000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 518000}]',
+  ARRAY['公営斎場', '火葬場併設', '広域利用可', '駐車場完備'],
+  '渋川地区広域市町村圏振興整備組合',
+  4.1, 29
+),
+
+-- 2. 利根沼田広域斎場沼田聖苑（沼田市）
+(
+  '利根沼田広域斎場沼田聖苑',
+  'tone-numata-kouiki-numata-seien',
+  'public_crematorium',
+  '沼田市にある利根沼田地区の広域組合運営斎場。河岸段丘の町として知られる沼田の郊外に位置し、自然豊かな環境の火葬場併設施設です。',
+  '群馬県沼田市岡谷町527',
+  'gunma', 'numata',
+  36.6412, 139.0412,
+  '沼田駅',
+  25,
+  80, 2, true, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 100000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 298000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 478000}]',
+  ARRAY['公営斎場', '火葬場併設', '自然豊かな環境', '広域利用可'],
+  '利根沼田広域市町村圏振興整備組合',
+  3.9, 16
+),
+
+-- 3. 館林市斎場（館林市）
+(
+  '館林市斎場',
+  'tatebayashi-saijo',
+  'public_crematorium',
+  '館林市が運営する公営斎場。つつじの名所で知られる館林市の郊外に位置し、火葬場を併設。清潔感のある施設で市民に親しまれています。',
+  '栃木県館林市苗木町2452-1',
+  'gunma', 'tatebayashi',
+  36.2312, 139.5412,
+  '館林駅',
+  18,
+  100, 2, true, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 105000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 308000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 488000}]',
+  ARRAY['公営斎場', '火葬場併設', '清潔感のある施設', '市民割引あり'],
+  '館林市',
+  4.0, 21
+),
+
+-- 4. かぶら聖苑（富岡市）
+(
+  'かぶら聖苑',
+  'kabura-seien',
+  'public_crematorium',
+  '富岡市にある甘楽富岡広域の公営斎場。世界遺産・富岡製糸場のある街にふさわしい品格ある施設で、火葬場を併設した総合斎場です。',
+  '群馬県富岡市上高尾328-1',
+  'gunma', 'tomioka',
+  36.2678, 138.8934,
+  '上州富岡駅',
+  20,
+  100, 2, true, 60,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 108000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 318000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 498000}]',
+  ARRAY['公営斎場', '火葬場併設', '品格ある施設', '広域利用可'],
+  '甘楽富岡広域市町村圏振興整備組合',
+  4.2, 26
+),
+
+-- 5. すみれが丘聖苑（渋川市）
+(
+  'すみれが丘聖苑',
+  'sumiregaoka-seien',
+  'public_crematorium',
+  '渋川市にある公営の斎場施設。赤城山麓の穏やかな丘陵地に位置し、自然に包まれた環境で静かなお別れの時間を過ごすことができます。',
+  '群馬県渋川市赤城町津久田3366',
+  'gunma', 'shibukawa',
+  36.5412, 139.0623,
+  '敷島駅',
+  15,
+  60, 1, true, 30,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 95000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 278000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 448000}]',
+  ARRAY['公営斎場', '火葬場併設', '赤城山麓', '自然に包まれた環境'],
+  '渋川市',
+  3.8, 12
+),
+
+-- 6. 大泉町外二町斎場（大泉町）
+(
+  '大泉町外二町斎場',
+  'oizumi-gai-ni-cho-saijo',
+  'public_crematorium',
+  '大泉町と周辺二町が共同で運営する公営斎場。多文化が共生する大泉町に位置し、火葬場を併設したコンパクトながら機能的な施設です。',
+  '群馬県邑楽郡大泉町北小泉3-9-1',
+  'gunma', 'oizumi',
+  36.2534, 139.3934,
+  '西小泉駅',
+  12,
+  80, 1, true, 30,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 98000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 288000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 458000}]',
+  ARRAY['公営斎場', '火葬場併設', '広域利用可', '低価格'],
+  '大泉町外二町広域清掃組合',
+  3.7, 10
+),
+
+-- 7. 藤岡市斎場（藤岡市）
+(
+  '藤岡市斎場',
+  'fujioka-saijo',
+  'public_crematorium',
+  '藤岡市が運営する公営斎場。藤の花で知られる街の郊外に位置し、火葬場を併設。市民に手頃な価格で葬儀サービスを提供しています。',
+  '群馬県藤岡市下栗須886-1',
+  'gunma', 'fujioka',
+  36.2534, 139.0734,
+  '群馬藤岡駅',
+  15,
+  80, 2, true, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 100000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 298000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 478000}]',
+  ARRAY['公営斎場', '火葬場併設', '低価格', 'バリアフリー対応'],
+  '藤岡市',
+  3.9, 17
+),
+
+-- 8. 安中市斎場（安中市）
+(
+  '安中市斎場',
+  'annaka-saijo',
+  'public_crematorium',
+  '安中市が管理する公営斎場。碓氷峠の麓に位置する歴史ある街で、火葬場を併設したシンプルながら機能的な葬儀施設です。',
+  '群馬県安中市中宿1588',
+  'gunma', 'annaka',
+  36.3278, 138.8812,
+  '安中駅',
+  15,
+  60, 1, true, 30,
+  '{"霊安室": true, "バリアフリー": false, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 95000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 278000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 448000}]',
+  ARRAY['公営斎場', '火葬場併設', '歴史ある街', '低価格'],
+  '安中市',
+  3.7, 9
+),
+
+-- 9. みどり市斎場（みどり市）
+(
+  'みどり市斎場',
+  'midori-saijo',
+  'public_crematorium',
+  'みどり市が運営する公営斎場。わたらせ渓谷鐡道沿線の自然豊かな環境に位置し、火葬場を併設した地域密着型の葬儀施設です。',
+  '群馬県みどり市笠懸町阿左美1790',
+  'gunma', 'midori',
+  36.3878, 139.2912,
+  '岩宿駅',
+  10,
+  80, 2, true, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": false, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 100000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 298000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 468000}]',
+  ARRAY['公営斎場', '火葬場併設', '自然豊かな環境', '駅近'],
+  'みどり市',
+  3.8, 14
+),
+
+-- 10. 渋川メモリアルホール（渋川市）
+(
+  '渋川メモリアルホール',
+  'shibukawa-memorial-hall',
+  'private_funeral_home',
+  '渋川市にある民営の総合葬儀場。伊香保温泉の玄関口に位置し、充実した設備と経験豊富なスタッフが、心のこもった葬儀をサポートします。',
+  '群馬県渋川市石原1501-5',
+  'gunma', 'shibukawa',
+  36.4912, 139.0012,
+  '渋川駅',
+  10,
+  120, 3, false, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 138000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 368000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 598000}]',
+  ARRAY['充実した設備', '複数ホール', '仮眠室完備', '経験豊富なスタッフ'],
+  '渋川メモリアル株式会社',
+  4.2, 34
+),
+
+-- 11. 家族葬のタクセル桐生錦町（桐生市）
+(
+  '家族葬のタクセル桐生錦町',
+  'taxel-kiryu-nishiki',
+  'private_funeral_home',
+  '桐生市錦町にあるタクセルの家族葬ホール。織物の街・桐生の歴史を感じる地域で、少人数の温かいお別れに特化した専門施設です。',
+  '群馬県桐生市錦町2-5-18',
+  'gunma', 'kiryu',
+  36.4078, 139.3312,
+  '桐生駅',
+  8,
+  40, 1, false, 15,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": false}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 95000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 278000}]',
+  ARRAY['家族葬専門', '駅近', '少人数対応', 'アットホーム'],
+  '株式会社タクセル',
+  4.3, 37
+),
+
+-- 12. 藤岡メモリアルホール（藤岡市）
+(
+  '藤岡メモリアルホール',
+  'fujioka-memorial-hall',
+  'private_funeral_home',
+  '藤岡市にある民営葬儀場。上信越道藤岡ICに近い交通至便な立地で、家族葬から一般葬まで対応。広い駐車場と清潔な設備が好評です。',
+  '群馬県藤岡市藤岡1585-3',
+  'gunma', 'fujioka',
+  36.2578, 139.0834,
+  '群馬藤岡駅',
+  12,
+  100, 2, false, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 128000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 348000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 568000}]',
+  ARRAY['交通至便', '駐車場完備', '仮眠室完備', '清潔な設備'],
+  '藤岡メモリアル株式会社',
+  4.1, 28
+),
+
+-- 13. 館林メモリアルホール（館林市）
+(
+  '館林メモリアルホール',
+  'tatebayashi-memorial-hall',
+  'private_funeral_home',
+  '館林市にある民営葬儀場。東武伊勢崎線沿線に位置し、東京方面からのアクセスも良好。家族葬から一般葬まで柔軟な対応が特徴です。',
+  '群馬県館林市本町2-8-12',
+  'gunma', 'tatebayashi',
+  36.2456, 139.5378,
+  '館林駅',
+  8,
+  100, 2, false, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 132000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 348000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 578000}]',
+  ARRAY['駅近', '東京方面アクセス良好', '柔軟な対応', '仮眠室完備'],
+  '館林メモリアル株式会社',
+  4.0, 24
+),
+
+-- 14. 群冠ホールアモート若宮（前橋市）
+(
+  '群冠ホールアモート若宮',
+  'gunkan-hall-amort-wakamiya',
+  'private_funeral_home',
+  '前橋市若宮にある群冠ホールの葬儀場。県庁所在地の好立地で、洗練された空間と丁寧なサービスが特徴。家族葬から大規模葬まで対応します。',
+  '群馬県前橋市若宮町2-5-1',
+  'gunma', 'maebashi',
+  36.3878, 139.0612,
+  '前橋駅',
+  12,
+  150, 3, false, 60,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 145000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 388000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 638000}]',
+  ARRAY['洗練された空間', '複数ホール', '大規模葬対応', '県庁所在地'],
+  '群冠ホール株式会社',
+  4.3, 40
+),
+
+-- 15. 日典ラサ赤城野別邸やすらぎ（前橋市）
+(
+  '日典ラサ赤城野別邸やすらぎ',
+  'nitten-rasa-akagino-bettei-yasuragi',
+  'private_funeral_home',
+  '前橋市にある日典ラサの家族葬向け施設。赤城山を望む穏やかな環境で、邸宅のような空間で故人との最期の時間を過ごせる上質な施設です。',
+  '群馬県前橋市富士見町赤城山1-15',
+  'gunma', 'maebashi',
+  36.4412, 139.0834,
+  '中央前橋駅',
+  30,
+  50, 2, false, 25,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 158000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 418000}]',
+  ARRAY['邸宅型', '家族葬向け', '赤城山の眺望', '上質な空間'],
+  '株式会社日典ラサ',
+  4.5, 52
+),
+
+-- 16. 天光社シティホール沼田（沼田市）
+(
+  '天光社シティホール沼田',
+  'tenkousha-city-hall-numata',
+  'private_funeral_home',
+  '沼田市にある天光社の葬儀場。利根川上流の自然豊かな地域に位置し、地元に密着したサービスで、家族葬から一般葬まで対応しています。',
+  '群馬県沼田市薄根町3249-1',
+  'gunma', 'numata',
+  36.6312, 139.0534,
+  '沼田駅',
+  12,
+  100, 2, false, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 128000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 348000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 568000}]',
+  ARRAY['地域密着', '駅近', '仮眠室完備', '自然豊かな環境'],
+  '株式会社天光社',
+  4.1, 25
+),
+
+-- 17. さがみ典礼太田ホール（太田市）
+(
+  'さがみ典礼太田ホール',
+  'sagami-tenrei-ota',
+  'private_funeral_home',
+  '太田市にあるさがみ典礼の葬儀場。北関東有数の工業都市に位置し、充実した設備と明朗会計で、家族葬から企業関連の葬儀まで対応します。',
+  '群馬県太田市飯田町1256-3',
+  'gunma', 'ota',
+  36.2912, 139.3723,
+  '太田駅',
+  10,
+  120, 3, false, 50,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 138000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 368000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 598000}]',
+  ARRAY['全国チェーン', '駅近', '明朗会計', '企業葬対応'],
+  'さがみ典礼',
+  4.1, 32
+),
+
+-- 18. さがみ典礼伊勢崎ホール（伊勢崎市）
+(
+  'さがみ典礼伊勢崎ホール',
+  'sagami-tenrei-isesaki',
+  'private_funeral_home',
+  '伊勢崎市にあるさがみ典礼の葬儀場。北関東道伊勢崎ICに近い好アクセスで、広い式場と充実した設備が特徴。丁寧なサービスが好評です。',
+  '群馬県伊勢崎市宮子町3418-5',
+  'gunma', 'isesaki',
+  36.3212, 139.2034,
+  '伊勢崎駅',
+  15,
+  100, 2, false, 40,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 135000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 358000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 588000}]',
+  ARRAY['全国チェーン', 'IC近く', '広い式場', '充実した設備'],
+  'さがみ典礼',
+  4.0, 27
+),
+
+-- 19. メモリード高崎（高崎市）
+(
+  'メモリード高崎',
+  'memolead-takasaki',
+  'private_funeral_home',
+  '高崎市にあるメモリードの大型葬儀場。音楽の都・高崎の中心部に位置し、多彩なプランと上質な空間で、心に残る葬儀を演出します。',
+  '群馬県高崎市栄町16-11',
+  'gunma', 'takasaki',
+  36.3234, 139.0112,
+  '高崎駅',
+  8,
+  200, 4, false, 80,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 148000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 398000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 648000}, {"type": "shaso", "label": "社葬プラン", "priceFrom": 1380000}]',
+  ARRAY['大型施設', '駅近', '多彩なプラン', '社葬対応'],
+  '株式会社メモリード',
+  4.4, 58
+),
+
+-- 20. メモリード前橋（前橋市）
+(
+  'メモリード前橋',
+  'memolead-maebashi',
+  'private_funeral_home',
+  '前橋市にあるメモリードの総合葬儀場。群馬県の県庁所在地で、家族葬から大規模な社葬まで幅広く対応。洗練されたサービスが特徴です。',
+  '群馬県前橋市本町2-12-1',
+  'gunma', 'maebashi',
+  36.3912, 139.0678,
+  '前橋駅',
+  10,
+  180, 3, false, 70,
+  '{"霊安室": true, "バリアフリー": true, "駐車場": true, "安置施設": true, "付添安置": true, "仮眠室": true}',
+  '[{"type": "kasoshiki", "label": "火葬式プラン", "priceFrom": 145000}, {"type": "kazokuso", "label": "家族葬プラン", "priceFrom": 388000}, {"type": "ippanso", "label": "一般葬プラン", "priceFrom": 638000}, {"type": "shaso", "label": "社葬プラン", "priceFrom": 1280000}]',
+  ARRAY['大型施設', '駅近', '社葬対応', '洗練されたサービス'],
+  '株式会社メモリード',
+  4.3, 47
 );
