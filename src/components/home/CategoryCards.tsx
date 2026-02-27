@@ -14,7 +14,7 @@ export default function CategoryCards({ categories }: CategoryCardsProps) {
           カテゴリから探す
         </h2>
 
-        <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3 xl:grid-cols-6">
+        <div className="mx-auto grid max-w-2xl grid-cols-2 gap-4 sm:gap-6">
           {categories.map((category) => (
             <Link
               key={category.id}

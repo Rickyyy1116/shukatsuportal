@@ -2,12 +2,8 @@ import Link from "next/link";
 
 /** カテゴリリンク */
 const CATEGORY_LINKS = [
-  { label: "葬儀", href: "/sougi/" },
-  { label: "お墓", href: "/ohaka/" },
-  { label: "介護", href: "/kaigo/" },
-  { label: "相続", href: "/souzoku/" },
-  { label: "遺品整理", href: "/ihinseiri/" },
-  { label: "保険", href: "/hoken/" },
+  { label: "葬儀場を探す", href: "/sougi/" },
+  { label: "お墓を探す", href: "/ohaka/" },
 ] as const;
 
 /** エリアリンク（関東の都道府県） */
