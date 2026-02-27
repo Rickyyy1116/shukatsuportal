@@ -71,6 +71,71 @@ export interface InquiryInput {
   message: string;
 }
 
+// === 斎場・葬儀場 ===
+export type VenueType =
+  | "public_crematorium"   // 公営火葬場
+  | "private_crematorium"  // 民営火葬場
+  | "private_hall"         // 民営斎場
+  | "temple_hall"          // 寺院式場
+  | "public_facility";     // 公共施設
+
+export interface PricePlan {
+  type: string;      // "kasoshiki" | "ichinichisou" | "kazokusou" | "ippansou"
+  label: string;     // "火葬式" | "一日葬" | "家族葬" | "一般葬"
+  priceFrom: number; // 最低価格（税抜）
+}
+
+export interface Venue {
+  id: string;
+  name: string;
+  slug: string;
+  venueType: VenueType;
+  description: string;
+  address: string;
+  prefectureSlug: string;
+  citySlug: string;
+  latitude: number;
+  longitude: number;
+  nearestStation: string;
+  stationWalkMinutes: number | null;
+  capacityMax: number | null;
+  hallCount: number | null;
+  hasCrematorium: boolean;
+  parkingCount: number | null;
+  facilities: Record<string, boolean>;
+  pricePlans: PricePlan[];
+  features: string[];
+  images: string[];
+  operatorName: string;
+  ratingAvg: number;
+  reviewCount: number;
+}
+
+export interface VenueFilter {
+  prefectureSlug?: string;
+  citySlug?: string;
+  venueType?: VenueType;
+  hasCrematorium?: boolean;
+  features?: string[];
+  sortBy?: "rating" | "reviewCount" | "name";
+  page?: number;
+  perPage?: number;
+}
+
+// === 見積もりフォーム ===
+export interface EstimateInput {
+  funeralType: string;
+  guestCount: string;
+  prefecture: string;
+  city: string;
+  timing: string;
+  message: string;
+  name: string;
+  email: string;
+  phone: string;
+  venueId?: string;
+}
+
 // === 検索・フィルター ===
 export interface ProviderFilter {
   categorySlug?: string;

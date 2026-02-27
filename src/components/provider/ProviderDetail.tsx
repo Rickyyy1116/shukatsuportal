@@ -12,6 +12,16 @@ const PRICE_VARIANT_MAP = {
   high: "price-high",
 } as const;
 
+// URLが安全なプロトコルかチェック（javascript:等のXSS防止）
+function isSafeUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === "http:" || parsed.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
 interface ProviderDetailProps {
   /** 事業者データ */
   provider: Provider;
@@ -81,7 +91,7 @@ export default function ProviderDetail({ provider }: ProviderDetailProps) {
           <div className="flex gap-4 py-3">
             <dt className="w-28 shrink-0 font-bold text-gray-700">公式サイト</dt>
             <dd className="text-gray-600">
-              {provider.website ? (
+              {provider.website && isSafeUrl(provider.website) ? (
                 <a
                   href={provider.website}
                   target="_blank"
@@ -90,6 +100,8 @@ export default function ProviderDetail({ provider }: ProviderDetailProps) {
                 >
                   {provider.website}
                 </a>
+              ) : provider.website ? (
+                <span className="text-gray-600">{provider.website}</span>
               ) : (
                 <span className="text-gray-400">情報なし</span>
               )}

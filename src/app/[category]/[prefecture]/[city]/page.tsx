@@ -4,11 +4,13 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import ProviderList from "@/components/provider/ProviderList";
+import VenueList from "@/components/venue/VenueList";
 import {
   getCategoryBySlug,
   getPrefectureBySlug,
   getCityBySlug,
   getProviders,
+  getVenues,
 } from "@/lib/data";
 import { VALID_CATEGORIES, SITE_NAME } from "@/lib/constants";
 
@@ -25,6 +27,8 @@ export default async function CityPage({ params }: CityPageProps) {
     notFound();
   }
 
+  const isSougi = category === "sougi";
+
   // データ取得
   const [cat, pref, cityData] = await Promise.all([
     getCategoryBySlug(category),
@@ -36,12 +40,13 @@ export default async function CityPage({ params }: CityPageProps) {
     notFound();
   }
 
-  // 事業者データ取得（市区町村でフィルタ）
-  const providersResult = await getProviders({
-    categorySlug: category,
-    prefectureSlug: prefecture,
-    citySlug: city,
-  });
+  // sougi分岐: 施設データ or 事業者データ
+  const venuesResult = isSougi
+    ? await getVenues({ prefectureSlug: prefecture, citySlug: city })
+    : null;
+  const providersResult = !isSougi
+    ? await getProviders({ categorySlug: category, prefectureSlug: prefecture, citySlug: city })
+    : null;
 
   // パンくずリスト
   const breadcrumbItems = [
@@ -65,13 +70,20 @@ export default async function CityPage({ params }: CityPageProps) {
           {pref.name}{cityData.name}で評判の良い{cat.providerLabel}を口コミ・料金で比較できます。
         </p>
 
-        {/* 事業者一覧 */}
+        {/* 一覧 */}
         <section className="mt-8">
-          <ProviderList
-            providers={providersResult.data}
-            categorySlug={category}
-            total={providersResult.total}
-          />
+          {isSougi && venuesResult ? (
+            <VenueList
+              venues={venuesResult.data}
+              total={venuesResult.total}
+            />
+          ) : providersResult ? (
+            <ProviderList
+              providers={providersResult.data}
+              categorySlug={category}
+              total={providersResult.total}
+            />
+          ) : null}
         </section>
       </main>
       <Footer />

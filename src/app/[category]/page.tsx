@@ -5,7 +5,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import ProviderList from "@/components/provider/ProviderList";
-import { getCategoryBySlug, getProviders, getPrefectures } from "@/lib/data";
+import VenueList from "@/components/venue/VenueList";
+import { getCategoryBySlug, getProviders, getVenues, getPrefectures } from "@/lib/data";
 import { VALID_CATEGORIES, REGION_GROUPS, SITE_NAME } from "@/lib/constants";
 
 interface CategoryPageProps {
@@ -23,16 +24,21 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     notFound();
   }
 
-  // データ取得
-  const [cat, providersResult, prefectures] = await Promise.all([
+  const isSougi = category === "sougi";
+
+  // データ取得（sougiの場合はvenues、それ以外はproviders）
+  const [cat, prefectures] = await Promise.all([
     getCategoryBySlug(category),
-    getProviders({ categorySlug: category }),
     getPrefectures(),
   ]);
 
   if (!cat) {
     notFound();
   }
+
+  // sougi分岐: 施設データ or 事業者データ
+  const venuesResult = isSougi ? await getVenues({}) : null;
+  const providersResult = !isSougi ? await getProviders({ categorySlug: category }) : null;
 
   // パンくずリスト
   const breadcrumbItems = [
@@ -86,16 +92,23 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           })}
         </section>
 
-        {/* 事業者一覧 */}
+        {/* 一覧 */}
         <section className="mt-10">
           <h2 className="mb-4 text-lg font-bold text-gray-900">
             おすすめの{cat.providerLabel}
           </h2>
-          <ProviderList
-            providers={providersResult.data}
-            categorySlug={category}
-            total={providersResult.total}
-          />
+          {isSougi && venuesResult ? (
+            <VenueList
+              venues={venuesResult.data}
+              total={venuesResult.total}
+            />
+          ) : providersResult ? (
+            <ProviderList
+              providers={providersResult.data}
+              categorySlug={category}
+              total={providersResult.total}
+            />
+          ) : null}
         </section>
       </main>
       <Footer />
@@ -117,4 +130,3 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     description: `全国の${cat.providerLabel}を口コミ・料金で比較。${cat.description}`,
   };
 }
-

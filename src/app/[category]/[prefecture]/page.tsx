@@ -5,10 +5,12 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import ProviderList from "@/components/provider/ProviderList";
+import VenueList from "@/components/venue/VenueList";
 import {
   getCategoryBySlug,
   getPrefectureBySlug,
   getProviders,
+  getVenues,
   getCitiesByPrefecture,
 } from "@/lib/data";
 import { VALID_CATEGORIES, SITE_NAME } from "@/lib/constants";
@@ -26,6 +28,8 @@ export default async function PrefecturePage({ params }: PrefecturePageProps) {
     notFound();
   }
 
+  const isSougi = category === "sougi";
+
   // データ取得
   const [cat, pref] = await Promise.all([
     getCategoryBySlug(category),
@@ -37,9 +41,10 @@ export default async function PrefecturePage({ params }: PrefecturePageProps) {
     notFound();
   }
 
-  // 事業者・市区町村データ取得
-  const [providersResult, cities] = await Promise.all([
-    getProviders({ categorySlug: category, prefectureSlug: prefecture }),
+  // sougi分岐: 施設データ or 事業者データ + 市区町村リスト
+  const [venuesResult, providersResult, cities] = await Promise.all([
+    isSougi ? getVenues({ prefectureSlug: prefecture }) : Promise.resolve(null),
+    !isSougi ? getProviders({ categorySlug: category, prefectureSlug: prefecture }) : Promise.resolve(null),
     getCitiesByPrefecture(prefecture),
   ]);
 
@@ -84,13 +89,20 @@ export default async function PrefecturePage({ params }: PrefecturePageProps) {
           </section>
         )}
 
-        {/* 事業者一覧 */}
+        {/* 一覧 */}
         <section className="mt-8">
-          <ProviderList
-            providers={providersResult.data}
-            categorySlug={category}
-            total={providersResult.total}
-          />
+          {isSougi && venuesResult ? (
+            <VenueList
+              venues={venuesResult.data}
+              total={venuesResult.total}
+            />
+          ) : providersResult ? (
+            <ProviderList
+              providers={providersResult.data}
+              categorySlug={category}
+              total={providersResult.total}
+            />
+          ) : null}
         </section>
       </main>
       <Footer />

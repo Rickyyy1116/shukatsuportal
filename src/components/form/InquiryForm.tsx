@@ -47,15 +47,21 @@ export default function InquiryForm({
   /** バリデーション */
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
 
-    if (!name.trim()) {
+    if (!trimmedName) {
       newErrors.name = "お名前を入力してください";
+    } else if (trimmedName.length > 200) {
+      newErrors.name = "お名前は200文字以内で入力してください";
     }
 
-    if (!email.trim()) {
+    if (!trimmedEmail) {
       newErrors.email = "メールアドレスを入力してください";
-    } else if (!email.includes("@") || !email.includes(".")) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
       newErrors.email = "有効なメールアドレスを入力してください";
+    } else if (trimmedEmail.length > 320) {
+      newErrors.email = "メールアドレスが長すぎます";
     }
 
     setErrors(newErrors);
@@ -224,6 +230,7 @@ export default function InquiryForm({
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           placeholder="090-1234-5678"
+          maxLength={30}
           className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-200"
         />
       </div>
@@ -279,6 +286,7 @@ export default function InquiryForm({
           onChange={(e) => setMessage(e.target.value)}
           rows={5}
           placeholder="ご相談内容をご記入ください"
+          maxLength={5000}
           className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-200"
         />
       </div>
